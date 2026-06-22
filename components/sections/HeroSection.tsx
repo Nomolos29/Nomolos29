@@ -12,12 +12,12 @@ import { getCachedSocialData, updateCacheIfNeeded, CachedData } from '@/lib/soci
 // Scattered desktop positions — original design intent preserved
 // Each position maps to a spot around the hero content, staggered so they feel organic
 const desktopPositions: Record<string, { pos: string; float: string }> = {
-  'top-left':     { pos: 'top-[160px] left-[5%]',          float: 'float-1' },
-  'top-right':    { pos: 'top-[140px] right-[5%]',          float: 'float-2' },
+  'top-left':     { pos: 'top-[160px] left-[8%]',          float: 'float-1' },
+  'top-right':    { pos: 'top-[140px] right-[8%]',          float: 'float-2' },
   'left-center':  { pos: 'top-[340px] left-[3%]',           float: 'float-3' },
-  'right-center': { pos: 'top-[360px] right-[3%]',          float: 'float-4' },
-  'bottom-left':  { pos: 'top-[520px] left-[7%]',           float: 'float-5' },
-  'bottom-right': { pos: 'top-[500px] right-[7%]',          float: 'float-6' },
+  'right-center': { pos: 'top-[340px] right-[3%]',          float: 'float-4' },
+  'bottom-left':  { pos: 'top-[520px] left-[10%]',           float: 'float-5' },
+  'bottom-right': { pos: 'top-[520px] right-[10%]',          float: 'float-6' },
 }
 
 // Mobile arc: 6 icons arranged in a shallow upward curve using translate offsets
@@ -84,7 +84,7 @@ const HeroSection = () => {
     <section className='relative flex justify-center w-full pt-36 pb-0 px-4 overflow-x-hidden'>
 
       {/* ── Center content ── */}
-      <div className='flex flex-col items-center w-full max-w-3xl text-center gap-y-5 z-[2]'>
+      <div className='flex flex-col items-center w-full max-w-4xl text-center gap-y-5 z-[2]'>
         <div className='space-y-3'>
           <p className='text-base sm:text-lg md:text-xl font-semibold text-primary capitalize'>
             Optimized code. Seamless UX.
@@ -95,7 +95,7 @@ const HeroSection = () => {
         </div>
 
         <p className='text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl'>
-          I&apos;m Solomon — a front-end developer focused on building responsive, SEO-optimized interfaces
+          I am Sunday Solomon, a front-end developer focused on building responsive, SEO-optimized interfaces
           with clean architecture and intentional user experience. From React to Next.js, I turn ideas into
           fast-loading, accessible, and delightful web products.
         </p>

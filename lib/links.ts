@@ -25,7 +25,7 @@ export const socialIcons: socialLinks[] = [
         link: "#",
         icon: React.createElement(FaLinkedinIn),
         color: "blue",
-        labelDirection: "right",
+        labelDirection: "left",
         position: "top-right",
         platform: "linkedin"
     },
