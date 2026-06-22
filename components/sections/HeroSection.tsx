@@ -101,7 +101,7 @@ const HeroSection = () => {
         </p>
 
         <div className='flex flex-col sm:flex-row items-center gap-4 mt-6 w-full max-w-sm sm:max-w-md'>
-          <Button textSize='lg' butonText='View my resume' buttonLink='/resume' buttonType='outline' />
+          <Button textSize='lg' butonText='View my resume' buttonLink='https://docs.google.com/document/d/1pFrc0rIWIzWElseapHJOr--Kb_OVY_IA/edit?usp=sharing&ouid=114183603003822068308&rtpof=true&sd=true' targetType='_blank' buttonType='outline' />
           <Button textSize='lg' buttonLink='#contact' butonText="Let's Build Together" buttonType='filled' />
         </div>
 

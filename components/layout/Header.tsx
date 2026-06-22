@@ -35,11 +35,11 @@ const Header = () => {
             <div className='lg:hidden'>
                 <Link href='/' className='text-foreground font-bold text-lg tracking-tight hover:text-primary transition-colors'>Nomolos<span className='text-primary'>.</span></Link>
             </div>
-            
+
             {/* Desktop Actions */}
             <div className='hidden lg:flex items-center gap-3'>
                 <ThemeToggle />
-                <Button textSize='lg' butonText='View my Work' buttonLink='#' buttonType='filled' />
+                <Button targetType='_blank' textSize='lg' butonText='View My Resume' buttonLink='https://docs.google.com/document/d/1pFrc0rIWIzWElseapHJOr--Kb_OVY_IA/edit?usp=sharing&ouid=114183603003822068308&rtpof=true&sd=true' buttonType='filled' />
             </div>
 
             {/* Mobile Actions */}
@@ -61,9 +61,9 @@ const Header = () => {
             <div className='lg:hidden absolute top-full left-4 right-4 mt-2 bg-card/95 backdrop-blur-md rounded-2xl shadow-lg py-4 px-6'>
                 <nav className='flex flex-col gap-4'>
                     {navMenu.map((menu, index) => (
-                        <Link 
-                            key={index} 
-                            href={menu.link} 
+                        <Link
+                            key={index}
+                            href={menu.link}
                             className='text-foreground hover:text-primary transition-colors py-2 border-b border-border last:border-b-0'
                             onClick={() => setIsMenuOpen(false)}
                         >
