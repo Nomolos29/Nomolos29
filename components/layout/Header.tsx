@@ -20,7 +20,7 @@ const Header = () => {
             {/* Desktop Layout */}
             <div className='hidden lg:flex items-center'>
                 <div className='border-r-[1px] border-border px-3 py-2'>
-                    <span className='text-foreground font-semibold'>Header</span>
+                    <Link href='/' className='text-foreground font-bold text-lg tracking-tight hover:text-primary transition-colors'>Nomolos<span className='text-primary'>.</span></Link>
                 </div>
                 <nav className='border-l-[1px] border-border px-3 py-2 flex gap-x-5'>
                     {navMenu.map((menu, index) => (
@@ -33,7 +33,7 @@ const Header = () => {
 
             {/* Mobile Logo */}
             <div className='lg:hidden'>
-                <span className='text-foreground font-semibold'>Header</span>
+                <Link href='/' className='text-foreground font-bold text-lg tracking-tight hover:text-primary transition-colors'>Nomolos<span className='text-primary'>.</span></Link>
             </div>
             
             {/* Desktop Actions */}

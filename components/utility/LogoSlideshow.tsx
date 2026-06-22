@@ -63,7 +63,7 @@ const LogoSlideshow: React.FC<LogoSlideshowProps> = ({
       onMouseLeave={() => setIsHovered(false)}
     >
       {/* Main Slide Area */}
-      <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-white to-gray-50 border border-gray-200/50 shadow-lg">
+      <div className="relative overflow-hidden rounded-2xl bg-card border border-border shadow-lg">
         
         {/* Logo Display */}
         <div className="flex items-center justify-center p-12 min-h-[200px]">
@@ -82,8 +82,8 @@ const LogoSlideshow: React.FC<LogoSlideshowProps> = ({
                   />
                 </div>
               ) : (
-                <div className="w-24 h-24 rounded-xl bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center shadow-lg">
-                  <span className="text-2xl font-bold text-blue-900">
+                <div className="w-24 h-24 rounded-xl bg-primary/10 flex items-center justify-center shadow-lg">
+                  <span className="text-2xl font-bold text-primary">
                     {currentCompany.logoText}
                   </span>
                 </div>
@@ -92,13 +92,13 @@ const LogoSlideshow: React.FC<LogoSlideshowProps> = ({
 
             {/* Company Info */}
             <div className="space-y-3">
-              <h3 className="text-2xl font-semibold text-gray-900">
+              <h3 className="text-2xl font-semibold text-foreground">
                 {currentCompany.name}
               </h3>
-              <p className="text-sm font-medium text-blue-600 bg-blue-50 px-3 py-1 rounded-full inline-block">
+              <p className="text-sm font-medium text-primary bg-primary/10 px-3 py-1 rounded-full inline-block">
                 {currentCompany.industry}
               </p>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-muted-foreground leading-relaxed">
                 {currentCompany.description}
               </p>
             </div>
@@ -109,14 +109,14 @@ const LogoSlideshow: React.FC<LogoSlideshowProps> = ({
         {/* Navigation Arrows */}
         <button
           onClick={prevSlide}
-          className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/80 backdrop-blur-sm border border-gray-200/50 flex items-center justify-center text-gray-600 hover:text-gray-900 hover:bg-white transition-all duration-200 shadow-sm"
+          className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-card/80 backdrop-blur-sm border border-border flex items-center justify-center text-foreground hover:text-foreground hover:bg-card transition-all duration-200 shadow-sm"
           aria-label="Previous company"
         >
           ←
         </button>
         <button
           onClick={nextSlide}
-          className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/80 backdrop-blur-sm border border-gray-200/50 flex items-center justify-center text-gray-600 hover:text-gray-900 hover:bg-white transition-all duration-200 shadow-sm"
+          className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-card/80 backdrop-blur-sm border border-border flex items-center justify-center text-foreground hover:text-foreground hover:bg-card transition-all duration-200 shadow-sm"
           aria-label="Next company"
         >
           →
@@ -124,9 +124,9 @@ const LogoSlideshow: React.FC<LogoSlideshowProps> = ({
 
         {/* Progress Bar */}
         <div className="absolute bottom-0 left-0 right-0">
-          <div className="h-1 bg-gray-200/50">
+          <div className="h-1 bg-border/40">
             <div
-              className="h-full bg-gradient-to-r from-blue-500 to-blue-600 transition-all duration-300 ease-out"
+              className="h-full bg-gradient-to-r from-primary to-primary/70 transition-all duration-300 ease-out"
               style={{
                 width: `${((currentIndex + 1) / companies.length) * 100}%`
               }}
@@ -144,8 +144,8 @@ const LogoSlideshow: React.FC<LogoSlideshowProps> = ({
               onClick={() => goToSlide(index)}
               className={`w-3 h-3 rounded-full transition-all duration-200 ${
                 index === currentIndex
-                  ? 'bg-blue-600 scale-110'
-                  : 'bg-gray-300 hover:bg-gray-400'
+                  ? 'bg-primary scale-110'
+                  : 'bg-muted-foreground/30 hover:bg-muted-foreground/60'
               }`}
               aria-label={`Go to slide ${index + 1}`}
             />
@@ -154,15 +154,15 @@ const LogoSlideshow: React.FC<LogoSlideshowProps> = ({
       )}
 
       {/* Company Grid Preview */}
-      <div className="grid grid-cols-4 gap-4 mt-8">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8">
         {companies.map((company, index) => (
           <button
             key={index}
             onClick={() => goToSlide(index)}
             className={`p-4 rounded-lg border transition-all duration-200 ${
               index === currentIndex
-                ? 'border-blue-200 bg-blue-50 scale-105'
-                : 'border-gray-200 bg-white hover:border-gray-300 hover:shadow-sm'
+                ? 'border-primary/40 bg-primary/5 scale-105'
+                : 'border-border bg-card hover:border-border/80 hover:shadow-sm'
             }`}
           >
             <div className="flex items-center justify-center h-12">
@@ -176,7 +176,7 @@ const LogoSlideshow: React.FC<LogoSlideshowProps> = ({
                   />
                 </div>
               ) : (
-                <div className="text-xs font-semibold text-gray-500">
+                <div className="text-xs font-semibold text-muted-foreground">
                   {company.logoText}
                 </div>
               )}
