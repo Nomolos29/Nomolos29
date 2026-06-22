@@ -42,7 +42,23 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  scroll-behavior: smooth;
 }
+
+/* Floating animation for social icons */
+@keyframes float-1 { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-10px) rotate(2deg); } }
+@keyframes float-2 { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-14px) rotate(-2deg); } }
+@keyframes float-3 { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-8px) rotate(3deg); } }
+@keyframes float-4 { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-12px) rotate(-3deg); } }
+@keyframes float-5 { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-9px) rotate(1deg); } }
+@keyframes float-6 { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-11px) rotate(-1deg); } }
+
+.float-1 { animation: float-1 4s ease-in-out infinite; }
+.float-2 { animation: float-2 5s ease-in-out infinite 0.5s; }
+.float-3 { animation: float-3 4.5s ease-in-out infinite 1s; }
+.float-4 { animation: float-4 5.5s ease-in-out infinite 0.3s; }
+.float-5 { animation: float-5 4.2s ease-in-out infinite 0.8s; }
+.float-6 { animation: float-6 5.2s ease-in-out infinite 1.2s; }
 
 /* Line clamp utilities */
 .line-clamp-2 {
