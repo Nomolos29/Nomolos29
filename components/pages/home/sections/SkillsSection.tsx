@@ -1,5 +1,5 @@
 import React from 'react';
-import SectionHeading from '../utility/SectionHeading';
+import SectionHeading from '../../../utility/SectionHeading';
 
 const SkillsSection = () => {
   const skillCategories = [

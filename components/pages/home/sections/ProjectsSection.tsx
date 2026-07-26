@@ -1,5 +1,5 @@
 import React from 'react';
-import SectionHeading from '../utility/SectionHeading';
+import SectionHeading from '../../../utility/SectionHeading';
 import Link from 'next/link';
 import Image from 'next/image';
 

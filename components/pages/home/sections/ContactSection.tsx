@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import SectionHeading from '../utility/SectionHeading';
+import SectionHeading from '../../../utility/SectionHeading';
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({

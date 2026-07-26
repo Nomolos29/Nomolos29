@@ -15,12 +15,12 @@ const Header = () => {
   }
 
   return (
-    <div className='w-full fixed top-0 px-4 md:px-10 py-5 flex justify-center items-center bg-transparent z-20'>
-        <main className='max-w-screen-2xl w-full flex justify-between items-center bg-card/30 backdrop-blur-md rounded-full shadow-lg px-5 py-2'>
+    <div className='w-full fixed top-0 px-4 md:px-10 py-4 flex bg-white justify-center items-center shadow-[0px_2px_5px_0px_#0000003d] z-20'>
+        <main className='max-w-screen-2xl w-full flex justify-between items-center'>
             {/* Desktop Layout */}
             <div className='hidden lg:flex items-center'>
                 <div className='border-r-[1px] border-border px-3 py-2'>
-                    <Link href='/' className='text-foreground font-bold text-lg tracking-tight hover:text-primary transition-colors'>Nomolos<span className='text-primary'>.</span></Link>
+                    <Link href='/' className='text-foreground text-gray-600 font-bold text-2xl tracking-tight hover:text-primary transition-colors font-[family-name:var(--font-rubikMaze)]'>Nomolos<span className='text-primary font-[family-name:var(--font-rubikMaze)] ml-1'>.</span></Link>
                 </div>
                 <nav className='border-l-[1px] border-border px-3 py-2 flex gap-x-5'>
                     {navMenu.map((menu, index) => (

@@ -1,7 +1,7 @@
 import { companyShowcase } from '@/lib/links'
 import React from 'react'
-import SectionHeading from '../utility/SectionHeading'
-import LogoSlideshow from '../utility/LogoSlideshow'
+import SectionHeading from '../../../utility/SectionHeading'
+import LogoSlideshow from '../../../utility/LogoSlideshow'
 
 const ExperienceShowcase = () => {
   return (
