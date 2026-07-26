@@ -3,34 +3,28 @@
 import { socialIcons } from '@/lib/links'
 import NomolosPortrait from "@/public/Nomolos.png"
 import React, { useEffect, useState } from 'react'
-import Button from '../../../utility/Button'
-import Link from 'next/link'
 import Image from 'next/image'
 import SocialHoverCard from '../../../utility/SocialHoverCard'
-import { FaArrowRight } from "react-icons/fa6";
+import { FaArrowRight } from "react-icons/fa6"
 import { getCachedSocialData, updateCacheIfNeeded, CachedData } from '@/lib/socialDataCache'
 import { PortfolioCard } from '../utils'
 
-// Scattered desktop positions — original design intent preserved
-// Each position maps to a spot around the hero content, staggered so they feel organic
 const desktopPositions: Record<string, { pos: string; float: string }> = {
-  'top-left':     { pos: 'top-[160px] left-[8%]',          float: 'float-1' },
-  'top-right':    { pos: 'top-[140px] right-[8%]',          float: 'float-2' },
-  'left-center':  { pos: 'top-[340px] left-[3%]',           float: 'float-3' },
-  'right-center': { pos: 'top-[340px] right-[3%]',          float: 'float-4' },
-  'bottom-left':  { pos: 'top-[520px] left-[10%]',           float: 'float-5' },
-  'bottom-right': { pos: 'top-[520px] right-[10%]',          float: 'float-6' },
+  'top-left':     { pos: 'top-[160px] left-[8%]',  float: 'float-1' },
+  'top-right':    { pos: 'top-[140px] right-[8%]',  float: 'float-2' },
+  'left-center':  { pos: 'top-[340px] left-[3%]',   float: 'float-3' },
+  'right-center': { pos: 'top-[340px] right-[3%]',  float: 'float-4' },
+  'bottom-left':  { pos: 'top-[520px] left-[10%]',  float: 'float-5' },
+  'bottom-right': { pos: 'top-[520px] right-[10%]', float: 'float-6' },
 }
 
-// Mobile arc: 6 icons arranged in a shallow upward curve using translate offsets
-// Icons are spaced evenly, outer ones rise up to create arc shape
 const mobileArcOffsets = [
-  '-translate-y-4',   // index 0 — left outer, highest
-  '-translate-y-6',   // index 1 — left inner, slightly higher
-  '-translate-y-8',   // index 2 — center-left, peak
-  '-translate-y-8',   // index 3 — center-right, peak
-  '-translate-y-6',   // index 4 — right inner
-  '-translate-y-4',   // index 5 — right outer
+  '-translate-y-4',
+  '-translate-y-6',
+  '-translate-y-8',
+  '-translate-y-8',
+  '-translate-y-6',
+  '-translate-y-4',
 ]
 
 const mobileFloatClasses = ['float-1', 'float-2', 'float-3', 'float-4', 'float-5', 'float-6']
@@ -82,15 +76,19 @@ const HeroSection = () => {
     : color === 'green' ? 'bg-green-500'
     : ''
 
+  const openLink = (url: string) => {
+    if (url !== '#') window.open(url, '_blank', 'noopener,noreferrer')
+  }
+
   return (
-    <section className='relative flex justify-center w-full h-full pt-36 pb-40 px-4 overflow-hidden bg-gradient-to-b from-[30%] from-gray-900 to-black'>
+    <section className='relative flex justify-center w-full h-full pt-32 pb-40 px-4 overflow-hidden bg-gradient-to-b from-[30%] from-gray-900 to-black'>
 
       {/* ── Center content ── */}
       <div className='flex flex-col items-center w-full max-w-[1440px] text-center gap-y-5 z-[2]'>
 
         <PortfolioCard />
 
-        <section className='w-full pt-20 h-[600px] flex flex-col items-center'>
+        <div className='w-full pt-20 h-[600px] flex flex-col items-center'>
           <div className='flex flex-col items-center'>
             <h1 className='uppercase text-white font-[family-name:var(--font-alfaSlabOne)] text-3xl sm:text-4xl md:text-5xl lg:text-9xl leading-tight'>
               Web Developer
@@ -110,65 +108,67 @@ const HeroSection = () => {
               <p className='text-sm sm:text-base text-muted-foreground'>
                 I build fast, scalable and accessible web applications with a strong focus on performance, maintainability and exceptional user experience.
               </p>
-              <button>
-                <Link href="#" className='flex gap-x-4 items-center text-white text-lg py-3 px-6 border-[2px] rounded-full border-white cursor-pointer'>Let&apos;s Connect <FaArrowRight /></Link>
-              </button>
-
-              <div>
-                <p></p>
-                <div></div>
-              </div>
+              {/* Plain anchor — no wrapping button or Link */}
+              <a
+                href='#contact'
+                className='inline-flex gap-x-4 items-center text-white text-lg py-3 px-6 border-[2px] rounded-full border-white cursor-pointer mt-4'
+              >
+                Let&apos;s Connect <FaArrowRight />
+              </a>
             </div>
-
           </div>
 
-          <div className='flex flex-col sm:flex-row items-center hidden gap-4 mt-6 w-full max-w-sm sm:max-w-md'>
-
-            <Button textSize='lg' buttonLink='#contact' butonText="Let's Build Together" buttonType='filled' />
-          </div>
-
-          {/* ── Mobile arc of social icons — sits right below buttons ── */}
-          <div className='lg:hidden flex items-end justify-center gap-3 mt-4 mb-2 w-full'>
+          {/* ── Mobile arc of social icons ── no SocialHoverCard inside so plain divs + onClick is fine ── */}
+          <div className='lg:hidden flex items-end justify-center gap-3 mt-8 mb-2 w-full'>
             {socialIcons.map((icon, index) => (
-              <Link href={icon.link} target='_blank' key={index}>
-                <div className={`${mobileArcOffsets[index]} ${mobileFloatClasses[index]} h-[46px] w-[46px] bg-card cursor-pointer shadow-[1px_1px_8px] ${iconColorClasses(icon.color)} flex items-center justify-center text-lg rounded-full hover:scale-110 transition-transform`}>
-                  {icon.icon}
-                </div>
-              </Link>
+              <div
+                key={index}
+                role='link'
+                tabIndex={0}
+                onClick={() => openLink(icon.link)}
+                onKeyDown={(e) => e.key === 'Enter' && openLink(icon.link)}
+                className={`${mobileArcOffsets[index]} ${mobileFloatClasses[index]} h-[46px] w-[46px] bg-card cursor-pointer shadow-[1px_1px_8px] ${iconColorClasses(icon.color)} flex items-center justify-center text-lg rounded-full hover:scale-110 transition-transform`}
+              >
+                {icon.icon}
+              </div>
             ))}
           </div>
-        </section>
+        </div>
 
         <Image src={NomolosPortrait} alt='hero mockup' width={1200} height={600} className='absolute bottom-0' />
 
         <h1 className='absolute text-9xl font-[family-name:var(--font-rubikMaze)] text-gray-900 -bottom-12'>Sunday Solomon</h1>
       </div>
 
-      {/* ── Desktop scattered floating icons ── only on lg+ ── */}
+      {/* ── Desktop scattered floating icons ── */}
       <div className='hidden'>
         {socialIcons.map((icon, index) => {
           const config = desktopPositions[icon.position]
           if (!config) return null
           return (
-            <Link href={icon.link} target='_blank' key={index}>
-              <div className={`absolute ${config.pos}`}>
-                <div className={`${config.float} h-[60px] group w-[60px] bg-card cursor-pointer shadow-[1px_1px_10px] relative ${iconColorClasses(icon.color)} flex items-center justify-center text-2xl rounded-full hover:scale-110 transition-transform`}>
-                  {icon.icon}
+            <div
+              key={index}
+              role='link'
+              tabIndex={0}
+              onClick={() => openLink(icon.link)}
+              onKeyDown={(e) => e.key === 'Enter' && openLink(icon.link)}
+              className={`absolute ${config.pos}`}
+            >
+              <div className={`${config.float} h-[60px] group w-[60px] bg-card cursor-pointer shadow-[1px_1px_10px] relative ${iconColorClasses(icon.color)} flex items-center justify-center text-2xl rounded-full hover:scale-110 transition-transform`}>
+                {icon.icon}
 
-                  {/* Activity pulse dot */}
-                  <div className={`p-2 -top-[22px] ${icon.link !== '#' && 'animate-pulse'} ${icon.labelDirection === 'right' ? '-right-5' : '-left-5'} absolute rounded-full ${dotColorClasses(icon.color)}`} />
+                <div className={`p-2 -top-[22px] ${icon.link !== '#' && 'animate-pulse'} ${icon.labelDirection === 'right' ? '-right-5' : '-left-5'} absolute rounded-full ${dotColorClasses(icon.color)}`} />
 
-                  <SocialHoverCard
-                    platform={icon.platform}
-                    name={icon.name}
-                    color={icon.color}
-                    labelDirection={icon.labelDirection}
-                    latestContent={getLatestContentForPlatform(icon.platform)}
-                    link={icon.link}
-                  />
-                </div>
+                <SocialHoverCard
+                  platform={icon.platform}
+                  name={icon.name}
+                  color={icon.color}
+                  labelDirection={icon.labelDirection}
+                  latestContent={getLatestContentForPlatform(icon.platform)}
+                  link={icon.link}
+                />
               </div>
-            </Link>
+            </div>
           )
         })}
       </div>

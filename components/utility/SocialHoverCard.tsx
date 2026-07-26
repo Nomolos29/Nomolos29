@@ -1,5 +1,4 @@
 import React from 'react';
-import Link from 'next/link';
 import { formatRelativeTime } from '@/lib/socialDataCache';
 
 interface SocialHoverCardProps {
@@ -110,11 +109,15 @@ const SocialHoverCard: React.FC<SocialHoverCardProps> = ({
 
         {/* Action */}
         {latestContent.url && latestContent.url !== "#" && (
-          <Link href={latestContent.url} target="_blank" rel="noopener noreferrer">
-            <div className={`text-xs font-medium ${iconClasses[color]} hover:underline cursor-pointer`}>
-              View {latestContent.type} →
-            </div>
-          </Link>
+          <a
+            href={latestContent.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={(e) => e.stopPropagation()}
+            className={`text-xs font-medium ${iconClasses[color]} hover:underline`}
+          >
+            View {latestContent.type} →
+          </a>
         )}
       </div>
     </div>
