@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Italianno, Rubik_Maze, Alfa_Slab_One } from "next/font/google";
+import { Poppins, Geist_Mono, Italianno, Rubik_Maze, Alfa_Slab_One } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components";
 import { ThemeProvider } from "@/lib/ThemeContext";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const poppins = Poppins({
+  variable: "--font-poppins",
   subsets: ["latin"],
+  weight: "400"
 });
 
 const geistMono = Geist_Mono({
@@ -66,7 +67,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${italianno.variable} ${rubikMaze.variable} ${alfaSlabOne.variable} antialiased`}
+        className={`${poppins.variable} ${geistMono.variable} ${italianno.variable} ${rubikMaze.variable} ${alfaSlabOne.variable} antialiased`}
       >
         <ThemeProvider>
           <Header />

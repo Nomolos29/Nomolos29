@@ -1,6 +1,6 @@
 import React from "react";
 import { navLinks, socialLinks } from "@/types/Links";
-import { FaLinkedinIn, FaXTwitter, FaGithub, FaWhatsapp, FaYoutube } from "react-icons/fa6";
+import { FaLinkedinIn, FaXTwitter, FaGithub } from "react-icons/fa6";
 import { BiLogoGmail } from "react-icons/bi";
 
 
@@ -56,24 +56,24 @@ export const socialIcons: socialLinks[] = [
         position: "bottom-left",
         platform: "github"
     },
-    {
-        name: "WhatsApp",
-        link: "https://wa.me/+2348101123098",
-        icon: React.createElement(FaWhatsapp),
-        color: "green",
-        labelDirection: "left",
-        position: "right-center",
-        platform: "whatsapp"
-    },
-    {
-        name: "Youtube",
-        link: "#",
-        icon: React.createElement(FaYoutube),
-        color: "red",
-        labelDirection: "right",
-        position: "left-center",
-        platform: "youtube"
-    }
+    // {
+    //     name: "WhatsApp",
+    //     link: "https://wa.me/+2348101123098",
+    //     icon: React.createElement(FaWhatsapp),
+    //     color: "green",
+    //     labelDirection: "left",
+    //     position: "right-center",
+    //     platform: "whatsapp"
+    // },
+    // {
+    //     name: "Youtube",
+    //     link: "#",
+    //     icon: React.createElement(FaYoutube),
+    //     color: "red",
+    //     labelDirection: "right",
+    //     position: "left-center",
+    //     platform: "youtube"
+    // }
 ]
 
 export const companyShowcase = [

@@ -1,22 +1,10 @@
-"use client"
-
 import { socialIcons } from '@/lib/links'
 import NomolosPortrait from "@/public/Nomolos.png"
-import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
-import SocialHoverCard from '../../../utility/SocialHoverCard'
 import { FaArrowRight } from "react-icons/fa6"
-import { getCachedSocialData, updateCacheIfNeeded, CachedData } from '@/lib/socialDataCache'
 import { PortfolioCard } from '../utils'
+import Link from 'next/link'
 
-const desktopPositions: Record<string, { pos: string; float: string }> = {
-  'top-left':     { pos: 'top-[160px] left-[8%]',  float: 'float-1' },
-  'top-right':    { pos: 'top-[140px] right-[8%]',  float: 'float-2' },
-  'left-center':  { pos: 'top-[340px] left-[3%]',   float: 'float-3' },
-  'right-center': { pos: 'top-[340px] right-[3%]',  float: 'float-4' },
-  'bottom-left':  { pos: 'top-[520px] left-[10%]',  float: 'float-5' },
-  'bottom-right': { pos: 'top-[520px] right-[10%]', float: 'float-6' },
-}
 
 const mobileArcOffsets = [
   '-translate-y-4',
@@ -30,38 +18,6 @@ const mobileArcOffsets = [
 const mobileFloatClasses = ['float-1', 'float-2', 'float-3', 'float-4', 'float-5', 'float-6']
 
 const HeroSection = () => {
-  const [socialData, setSocialData] = useState<CachedData | null>(null)
-
-  useEffect(() => {
-    const cached = getCachedSocialData()
-    if (cached) setSocialData(cached)
-
-    updateCacheIfNeeded().then((updated) => {
-      if (updated) setSocialData(updated)
-    })
-
-    const interval = setInterval(() => {
-      const now = new Date()
-      if (now.getHours() === 0 && now.getMinutes() < 5) {
-        updateCacheIfNeeded().then((updated) => {
-          if (updated) setSocialData(updated)
-        })
-      }
-    }, 60000)
-
-    return () => clearInterval(interval)
-  }, [])
-
-  const getLatestContentForPlatform = (platform: string) => {
-    if (!socialData) return undefined
-    switch (platform) {
-      case 'github':  return socialData.github
-      case 'twitter': return socialData.twitter
-      case 'youtube': return socialData.youtube
-      default:        return undefined
-    }
-  }
-
   const iconColorClasses = (color: string) =>
     color === 'blue'  ? 'shadow-blue-400 text-primary'
     : color === 'black' ? 'shadow-gray-400 text-foreground'
@@ -69,16 +25,6 @@ const HeroSection = () => {
     : color === 'green' ? 'shadow-green-400 text-green-600'
     : ''
 
-  const dotColorClasses = (color: string) =>
-    color === 'blue'  ? 'bg-blue-400'
-    : color === 'black' ? 'bg-gray-500'
-    : color === 'red'   ? 'bg-red-500'
-    : color === 'green' ? 'bg-green-500'
-    : ''
-
-  const openLink = (url: string) => {
-    if (url !== '#') window.open(url, '_blank', 'noopener,noreferrer')
-  }
 
   return (
     <section className='relative flex justify-center w-full h-full pt-32 pb-40 px-4 overflow-hidden bg-gradient-to-b from-[30%] from-gray-900 to-black'>
@@ -86,11 +32,11 @@ const HeroSection = () => {
       {/* ── Center content ── */}
       <div className='flex flex-col items-center w-full max-w-[1440px] text-center gap-y-5 z-[2]'>
 
-        <PortfolioCard />
+        <PortfolioCard subheadingText='Sunday Solomon' headingText='Portfolio' preHeading='2026' />
 
         <div className='w-full pt-20 h-[600px] flex flex-col items-center'>
           <div className='flex flex-col items-center'>
-            <h1 className='uppercase text-white font-[family-name:var(--font-alfaSlabOne)] text-3xl sm:text-4xl md:text-5xl lg:text-9xl leading-tight'>
+            <h1 className='uppercase text-white font-[family-name:var(--font-alfaSlabOne)] text-3xl sm:text-4xl md:text-5xl lg:text-9xl leading-tight z-[-2]'>
               Web Developer
             </h1>
             <div className='flex justify-between w-[1200px] font-semibold text-white'>
@@ -104,73 +50,45 @@ const HeroSection = () => {
           </div>
 
           <div className='flex justify-between w-[1200px] pt-20'>
-            <div className='max-w-[410px] text-left'>
-              <p className='text-sm sm:text-base text-muted-foreground'>
-                I build fast, scalable and accessible web applications with a strong focus on performance, maintainability and exceptional user experience.
-              </p>
-              {/* Plain anchor — no wrapping button or Link */}
-              <a
-                href='#contact'
-                className='inline-flex gap-x-4 items-center text-white text-lg py-3 px-6 border-[2px] rounded-full border-white cursor-pointer mt-4'
-              >
-                Let&apos;s Connect <FaArrowRight />
-              </a>
+            <div className='max-w-[410px] text-left space-y-5 flex flex-col gap-y-14'>
+              <div className='space-y-10 relative'>
+                <p className='text-sm sm:text-base text-muted-foreground'>
+                  I build fast, scalable and accessible web applications with a strong focus on performance, maintainability and exceptional user experience.
+                </p>
+                <Link
+                  href={'https://wa.me/+2348101123098'}
+                  target='_blank'
+                  className='inline-flex gap-x-4 items-center text-white text-lg py-3 px-6 border-[2px] rounded-full border-white cursor-pointer mt-4'
+                >
+                  Let&apos;s Connect <FaArrowRight />
+                </Link>
+              </div>
+
+              <div>
+                <p className='uppercase text-white'>find me on:</p>
+                {/* ── Mobile arc of social icons ── no SocialHoverCard inside so plain divs + onClick is fine ── */}
+                <div className='flex items-end gap-3 w-full mt-10'>
+                  {socialIcons.map((icon, index) => (
+                    <Link key={index} href={icon.link}>
+                      <div
+                        role='link'
+                        tabIndex={0}
+                        className={`${mobileArcOffsets[index]} ${mobileFloatClasses[index]} h-[46px] text-gray-800 border border-white w-[46px] bg-black/60 cursor-pointer ${iconColorClasses(icon.color)} flex items-center justify-center text-lg rounded-full hover:scale-110 transition-transform`}
+                      >
+                        {icon.icon}
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
 
-          {/* ── Mobile arc of social icons ── no SocialHoverCard inside so plain divs + onClick is fine ── */}
-          <div className='lg:hidden flex items-end justify-center gap-3 mt-8 mb-2 w-full'>
-            {socialIcons.map((icon, index) => (
-              <div
-                key={index}
-                role='link'
-                tabIndex={0}
-                onClick={() => openLink(icon.link)}
-                onKeyDown={(e) => e.key === 'Enter' && openLink(icon.link)}
-                className={`${mobileArcOffsets[index]} ${mobileFloatClasses[index]} h-[46px] w-[46px] bg-card cursor-pointer shadow-[1px_1px_8px] ${iconColorClasses(icon.color)} flex items-center justify-center text-lg rounded-full hover:scale-110 transition-transform`}
-              >
-                {icon.icon}
-              </div>
-            ))}
-          </div>
         </div>
 
-        <Image src={NomolosPortrait} alt='hero mockup' width={1200} height={600} className='absolute bottom-0' />
+        <Image src={NomolosPortrait} alt='hero mockup' width={1200} height={600} className='absolute bottom-0 z-[-1]' />
 
-        <h1 className='absolute text-9xl font-[family-name:var(--font-rubikMaze)] text-gray-900 -bottom-12'>Sunday Solomon</h1>
-      </div>
-
-      {/* ── Desktop scattered floating icons ── */}
-      <div className='hidden'>
-        {socialIcons.map((icon, index) => {
-          const config = desktopPositions[icon.position]
-          if (!config) return null
-          return (
-            <div
-              key={index}
-              role='link'
-              tabIndex={0}
-              onClick={() => openLink(icon.link)}
-              onKeyDown={(e) => e.key === 'Enter' && openLink(icon.link)}
-              className={`absolute ${config.pos}`}
-            >
-              <div className={`${config.float} h-[60px] group w-[60px] bg-card cursor-pointer shadow-[1px_1px_10px] relative ${iconColorClasses(icon.color)} flex items-center justify-center text-2xl rounded-full hover:scale-110 transition-transform`}>
-                {icon.icon}
-
-                <div className={`p-2 -top-[22px] ${icon.link !== '#' && 'animate-pulse'} ${icon.labelDirection === 'right' ? '-right-5' : '-left-5'} absolute rounded-full ${dotColorClasses(icon.color)}`} />
-
-                <SocialHoverCard
-                  platform={icon.platform}
-                  name={icon.name}
-                  color={icon.color}
-                  labelDirection={icon.labelDirection}
-                  latestContent={getLatestContentForPlatform(icon.platform)}
-                  link={icon.link}
-                />
-              </div>
-            </div>
-          )
-        })}
+        {/* <h1 className='absolute text-9xl font-[family-name:var(--font-rubikMaze)] text-gray-900 -bottom-12'>Sunday Solomon</h1> */}
       </div>
 
     </section>

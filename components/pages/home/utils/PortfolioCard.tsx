@@ -16,16 +16,21 @@ const BubbleTag: React.FC<BubbleTagProps> = ({text, theme, direction, fontStyle}
     </div>
 )
 
-const PortfolioCard = () => {
+interface PortfolioCardProps {
+    preHeading?: string,
+    headingText: string,
+    subheadingText?: string,
+    theme?: 'dark' | 'light'
+}
+
+const PortfolioCard:React.FC<PortfolioCardProps> = ({preHeading, headingText, subheadingText, theme = 'light'}) => {
   return (
-    <div className='py-10'>
-        <BubbleTag text='2026' theme='dark' direction='left' fontStyle='italic-normal' />
-        <div>
-            {/* <div className='h-[70px] bg-transparent w-[40%] flex justify-self-end  rounded-full -mb-14 -mt-6 -mr-10 backdrop-blur-[4px]' /> */}
-            <h1 className='text-9xl uppercase text-white font-[family-name:var(--font-rubikMaze)]'>portfolio</h1>
-            {/* <div className='h-[70px] bg-transparent shadow-[0px_0px_105px_0px_#00000037] w-[58%] flex rounded-full -ml-16 -mt-14 -mb-6 backdrop-blur-[4px]' /> */}
+    <div className='py-10 w-fit'>
+        {preHeading && <BubbleTag text={preHeading} theme='dark' direction='left' fontStyle='italic-normal' />}
+        <div className='w-fit'>
+            <h1 className='text-9xl uppercase text-white font-[family-name:var(--font-rubikMaze)]'>{headingText}</h1>
         </div>
-        <BubbleTag text='Sunday Solomon' theme='light' direction='right' fontStyle='signature' />
+        {subheadingText && <BubbleTag text={subheadingText} theme={theme} direction='right' fontStyle='signature' />}
     </div>
   )
 }
