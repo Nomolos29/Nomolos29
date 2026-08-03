@@ -1,5 +1,5 @@
 import React from 'react'
-import { PortfolioCard, QuestionCard } from '../utils'
+import { QuestionCard } from '../utils'
 import Link from 'next/link'
 import { FaArrowRight } from 'react-icons/fa6'
 import { FAQs } from '@/lib/FAQsData'
@@ -11,7 +11,7 @@ const FaqSection = () => {
             <div className='flex justify-between items-center w-full h-[550px]'>
                 <div className='w-[45%] font-[family-name:var(--font-poppins)] space-y-5'>
                     <h2 className='text-7xl text-white'>Everything You Might Want to Know</h2>
-                    <p className='text-gray-300 text-xl w-[70%]'>Transparency matters. Here's a closer look at how I work, what I build, and what you can expect.</p>
+                    <p className='text-gray-300 text-xl w-[70%]'>Transparency matters. Here&apos;s a closer look at how I work, what I build, and what you can expect.</p>
                     <div className='flex items-center gap-x-5'>
                         <Link
                             href={'https://wa.me/+2348101123098'}

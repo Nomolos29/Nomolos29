@@ -1,7 +1,7 @@
-import AboutSection from "@/components/pages/home/sections/AboutSection";
-import SkillsSection from "@/components/pages/home/sections/SkillsSection";
+// import AboutSection from "@/components/pages/home/sections/AboutSection";
+// import SkillsSection from "@/components/pages/home/sections/SkillsSection";
 import ProjectsSection from "@/components/pages/home/sections/ProjectsSection";
-import ContactSection from "@/components/pages/home/sections/ContactSection";
+// import ContactSection from "@/components/pages/home/sections/ContactSection";
 import Footer from "@/components/pages/home/sections/Footer";
 import { Introduction, HeroSection, FaqSection } from "@/components/pages/home/sections";
 

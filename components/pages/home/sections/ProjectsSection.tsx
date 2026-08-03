@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import Link from "next/link";
+// import Link from "next/link";
 import { BiChevronLeft, BiChevronRight } from "react-icons/bi";
 import { WEBPROJECTS } from "@/lib/projectData"
 import { PortfolioCard } from "../utils";
