@@ -18,13 +18,6 @@ const mobileArcOffsets = [
 const mobileFloatClasses = ['float-1', 'float-2', 'float-3', 'float-4', 'float-5', 'float-6']
 
 const HeroSection = () => {
-  const iconColorClasses = (color: string) =>
-    color === 'blue'  ? 'shadow-blue-400 text-primary'
-    : color === 'black' ? 'shadow-gray-400 text-foreground'
-    : color === 'red'   ? 'shadow-red-400 text-red-500'
-    : color === 'green' ? 'shadow-green-400 text-green-600'
-    : ''
-
 
   return (
     <section className='relative flex justify-center w-full h-full pt-32 pb-40 px-4 overflow-hidden bg-gradient-to-b from-[30%] from-gray-900 to-black'>
@@ -73,7 +66,7 @@ const HeroSection = () => {
                       <div
                         role='link'
                         tabIndex={0}
-                        className={`${mobileArcOffsets[index]} ${mobileFloatClasses[index]} h-[46px] text-gray-800 border border-white w-[46px] bg-black/60 cursor-pointer ${iconColorClasses(icon.color)} flex items-center justify-center text-lg rounded-full hover:scale-110 transition-transform`}
+                        className={`${mobileArcOffsets[index]} ${mobileFloatClasses[index]} h-[46px] text-white border border-white w-[46px] bg-black/60 cursor-pointer flex items-center justify-center text-lg rounded-full hover:scale-110 transition-transform`}
                       >
                         {icon.icon}
                       </div>

@@ -7,15 +7,15 @@ import { BiLogoGmail } from "react-icons/bi";
 export const navMenu: navLinks[] = [
     {
         name: "About Me",
-        link: "#about"
+        link: "/about-me"
     },
     {
         name: "Projects",
-        link: "#projects"
+        link: "/projects"
     },
     {
         name: "Contact Me",
-        link: "#contact"
+        link: "/contacts"
     }
 ]
 

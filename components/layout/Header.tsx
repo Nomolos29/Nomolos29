@@ -24,7 +24,7 @@ const Header = () => {
                 </div>
                 <nav className='border-l-[1px] border-border px-3 py-2 flex gap-x-5'>
                     {navMenu.map((menu, index) => (
-                        <Link key={index} href={menu.link} className='relative'>
+                        <Link key={index} href={menu.link} className='relative cursor-pointer'>
                             <button type='button' className='z-10 group p-1 text-foreground hover:text-primary transition-colors'>{menu.name}</button>
                         </Link>
                     ))}

@@ -3,6 +3,7 @@ import { Poppins, Geist_Mono, Italianno, Rubik_Maze, Alfa_Slab_One } from "next/
 import "./globals.css";
 import { Header } from "@/components";
 import { ThemeProvider } from "@/lib/ThemeContext";
+import Footer from "@/components/layout/Footer";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -74,6 +75,7 @@ export default function RootLayout({
           <main>
             {children}
           </main>
+          <Footer />
         </ThemeProvider>
       </body>
     </html>

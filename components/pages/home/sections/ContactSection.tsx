@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState } from 'react';
-import SectionHeading from '../../../utility/SectionHeading';
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -25,12 +24,12 @@ const ContactSection = () => {
     setTimeout(() => setSubmitted(false), 5000);
   };
 
-  const contactInfo = [
-    { icon: '📧', label: 'Email', value: 'nomolos2019@gmail.com', link: 'mailto:nomolos2019@gmail.com' },
-    { icon: '💬', label: 'WhatsApp', value: '+234 810 112 3098', link: 'https://wa.me/+2348101123098' },
-    { icon: '📍', label: 'Location', value: 'Lagos, Nigeria', link: '#' },
-    { icon: '🐦', label: 'Twitter', value: '@Nomoreloss29', link: 'https://x.com/Nomoreloss29' },
-  ];
+  // const contactInfo = [
+  //   { icon: '📧', label: 'Email', value: 'nomolos2019@gmail.com', link: 'mailto:nomolos2019@gmail.com' },
+  //   { icon: '💬', label: 'WhatsApp', value: '+234 810 112 3098', link: 'https://wa.me/+2348101123098' },
+  //   { icon: '📍', label: 'Location', value: 'Lagos, Nigeria', link: '#' },
+  //   { icon: '🐦', label: 'Twitter', value: '@Nomoreloss29', link: 'https://x.com/Nomoreloss29' },
+  // ];
 
   const budgetRanges = ['$5,000 - $10,000', '$10,000 - $25,000', '$25,000 - $50,000', '$50,000+', "Let's discuss"];
   const projectTypes = ['Web Application', 'E-commerce Platform', 'SaaS Product', 'Mobile App', 'API Development', 'Consultation', 'Other'];
@@ -38,15 +37,8 @@ const ContactSection = () => {
   const inputClass = 'w-full px-4 py-3 bg-background border border-border rounded-lg text-foreground placeholder:text-muted-foreground focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all';
 
   return (
-    <section id='contact' className='w-full py-20 px-4 bg-muted/30'>
+    <section id='contact' className='w-full p-5 bg-muted/30'>
       <div className='max-w-6xl mx-auto'>
-        <SectionHeading
-          badge="Let's Work Together"
-          title='Ready to bring your vision to life?'
-          subtitle="Whether you're a startup looking to build your MVP or an established company wanting to scale, I'm here to help turn your ideas into exceptional digital experiences."
-          size='md'
-          className='mb-16'
-        />
 
         <div className='grid grid-cols-1 lg:grid-cols-3 gap-12'>
 
@@ -119,46 +111,6 @@ const ContactSection = () => {
 
           {/* Sidebar */}
           <div className='space-y-6'>
-            <div className='bg-card border border-border rounded-2xl p-6 shadow-sm'>
-              <h3 className='text-xl font-semibold text-foreground mb-6'>Get in touch</h3>
-              <div className='space-y-4'>
-                {contactInfo.map((info, index) => (
-                  <div key={index} className='flex items-center gap-4'>
-                    <div className='w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center text-lg shrink-0'>
-                      {info.icon}
-                    </div>
-                    <div>
-                      <p className='text-sm text-muted-foreground'>{info.label}</p>
-                      {info.link !== '#' ? (
-                        <a href={info.link} className='font-medium text-foreground hover:text-primary transition-colors'>
-                          {info.value}
-                        </a>
-                      ) : (
-                        <p className='font-medium text-foreground'>{info.value}</p>
-                      )}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className='bg-primary rounded-2xl p-6 text-primary-foreground'>
-              <h3 className='text-xl font-semibold mb-4'>Quick Response</h3>
-              <div className='space-y-3'>
-                <div className='flex items-center gap-3'>
-                  <span className='w-2 h-2 bg-green-400 rounded-full shrink-0'></span>
-                  <span className='text-primary-foreground/80 text-sm'>Usually respond within 2–4 hours</span>
-                </div>
-                <div className='flex items-center gap-3'>
-                  <span className='w-2 h-2 bg-yellow-400 rounded-full shrink-0'></span>
-                  <span className='text-primary-foreground/80 text-sm'>Free consultation call within 48 hours</span>
-                </div>
-                <div className='flex items-center gap-3'>
-                  <span className='w-2 h-2 bg-blue-300 rounded-full shrink-0'></span>
-                  <span className='text-primary-foreground/80 text-sm'>Detailed proposal within 5–7 days</span>
-                </div>
-              </div>
-            </div>
 
             <div className='bg-card border border-border rounded-2xl p-6 shadow-sm'>
               <div className='flex items-center justify-between mb-3'>
