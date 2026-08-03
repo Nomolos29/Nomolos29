@@ -24,7 +24,7 @@ const Introduction = () => {
                             <Link
                                 href={'https://wa.me/+2348101123098'}
                                 target='_blank'
-                                className='inline-flex gap-x-4 items-center text-white text-lg py-3 px-6 border-[2px] rounded-full border-white cursor-pointer mt-6 bg-black'
+                                className='inline-flex gap-x-4 items-center text-white text-lg py-3 px-6 rounded-full cursor-pointer mt-6 bg-black'
                             >
                                 Let&apos;s Build Together <FaArrowRight />
                             </Link>
