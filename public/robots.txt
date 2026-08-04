@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://nomolos29.vercel.app/
+
+# Sitemaps
+Sitemap: https://nomolos29.vercel.app/sitemap.xml
