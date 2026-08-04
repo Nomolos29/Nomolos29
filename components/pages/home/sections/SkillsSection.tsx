@@ -1,5 +1,6 @@
 import React from 'react';
 import SectionHeading from '../../../utility/SectionHeading';
+import { Tools } from '../utils';
 
 const SkillsSection = () => {
   const skillCategories = [
@@ -32,14 +33,14 @@ const SkillsSection = () => {
     },
   ];
 
-  const certifications = [
-    { name: 'Web3Bridge Graduate', issuer: 'Web3Bridge Africa', year: '2023', badge: '🎓' },
-    { name: 'React Development', issuer: 'Self-Directed Learning', year: '2022', badge: '⚛️' },
-    { name: 'Next.js Expert', issuer: 'Professional Projects', year: '2023', badge: '▲' },
-  ];
+  // const certifications = [
+  //   { name: 'Web3Bridge Graduate', issuer: 'Web3Bridge Africa', year: '2023', badge: '🎓' },
+  //   { name: 'React Development', issuer: 'Self-Directed Learning', year: '2022', badge: '⚛️' },
+  //   { name: 'Next.js Expert', issuer: 'Professional Projects', year: '2023', badge: '▲' },
+  // ];
 
   return (
-    <section id='skills' className='w-full py-20 px-4 bg-background'>
+    <section id='skills' className='w-full pb-20 px-4 bg-background'>
       <div className='max-w-6xl mx-auto'>
         <SectionHeading
           badge='Skills & Expertise'
@@ -77,8 +78,10 @@ const SkillsSection = () => {
           ))}
         </div>
 
+        <Tools />
+
         {/* Certifications */}
-        <div className='bg-primary/5 border border-primary/20 rounded-2xl p-8'>
+        {/* <div className='bg-primary/5 border border-primary/20 rounded-2xl p-8'>
           <h3 className='text-2xl font-semibold text-foreground mb-8 text-center'>Education & Certifications</h3>
           <div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
             {certifications.map((cert, index) => (
@@ -90,7 +93,7 @@ const SkillsSection = () => {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
 
         {/* CTA */}
         <div className='mt-16 text-center'>

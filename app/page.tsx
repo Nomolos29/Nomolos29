@@ -1,7 +1,6 @@
 // import AboutSection from "@/components/pages/home/sections/AboutSection";
-// import SkillsSection from "@/components/pages/home/sections/SkillsSection";
 import ProjectsSection from "@/components/pages/home/sections/ProjectsSection";
-import { Introduction, HeroSection, FaqSection, QuestioniareSection } from "@/components/pages/home/sections";
+import { Introduction, HeroSection, FaqSection, QuestioniareSection, SkillsSection } from "@/components/pages/home/sections";
 
 export default function Home() {
   return (
@@ -10,12 +9,12 @@ export default function Home() {
       <Introduction />
       <div className="max-w-screen-2xl mx-auto w-full px-4 sm:px-5 lg:px-10">
       </div>
-
+      <SkillsSection />
       <ProjectsSection />
       <QuestioniareSection />
       <FaqSection />
       {/* <AboutSection />
-      <SkillsSection /> */}
+       */}
     </div>
   );
 }

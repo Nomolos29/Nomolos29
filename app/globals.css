@@ -54,6 +54,32 @@ body {
 @keyframes float-5 { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-9px) rotate(1deg); } }
 @keyframes float-6 { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-11px) rotate(-1deg); } }
 
+@keyframes marquee-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-right {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.animate-marquee-left {
+  animation: marquee-left 10s linear infinite;
+}
+
+.animate-marquee-right {
+  animation: marquee-right 10s linear infinite;
+}
+
 .float-1 { animation: float-1 4s ease-in-out infinite; }
 .float-2 { animation: float-2 5s ease-in-out infinite 0.5s; }
 .float-3 { animation: float-3 4.5s ease-in-out infinite 1s; }
