@@ -19,7 +19,7 @@ const QuestioniareSection = () => {
                 </Link>
             </div>
             <div className='w-[210%] md:w-[30%]'>
-                <Link href="https://radiancecookware.com/" target='_blank'> <Image src="/homepage/chatgpt-mobile-mockup.png" alt='Radiance Cookware mobile mockup' width={950} height={400} className='md:object-fit -ml-[27%] md:m-0 md:absolute lg:bottom-[-15%] xl:bottom-[-17%] lg:left-[25%] xl:left-[42%] bg-no-repeat' /></Link>
+                <Link href="https://radiancecookware.com/" target='_blank'> <Image src="/homepage/chatgpt-mobile-mockup.png" alt='Radiance Cookware mobile mockup' width={950} height={400} className='md:object-fit -ml-[27%] md:m-0 md:absolute opacity-100 md:opacity-0 lg:opacity-100 lg:bottom-[-15%] xl:bottom-[-17%] lg:left-[25%] xl:left-[42%] bg-no-repeat' /></Link>
             </div>
         </div>
     </section>
