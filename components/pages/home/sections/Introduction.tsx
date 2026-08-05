@@ -6,7 +6,7 @@ import { FaArrowRight } from 'react-icons/fa6'
 
 const Introduction = () => {
   return (
-    <section className='w-full flex justify-center py-14 bg-gradient-to-b from-[20%] to-60% from-gray-700 to-white px-14'>
+    <section className='w-full flex justify-center py-14 bg-gradient-to-b from-[20%] to-60% from-gray-700 to-white lg:px-10 xl:px-14'>
         <div className='max-w-[1440px] flex flex-col items-center'>
             <div className='flex flex-col items-center max-w-[900px]'>
                 <PortfolioCard preHeading='Meet Sunday Solomon' headingText='introduction' subheadingText='The Person Behind the Code' />
@@ -18,7 +18,7 @@ const Introduction = () => {
                     <h2 className='text-7xl font-[family-name:var(--font-poppins)]'>Building Digital <span className='text-[#f835a7]'>Products</span> that <span className='text-primary'>Scale</span>.</h2>
                     <p className='pr-3'> Regardless of the technology, my focus has always remained creating products that are intuitive, scalable, and built with long-term maintainability in mind.</p>
 
-                    <div className='py-7 pl-10 bg-gradient-to-r mt-5 w-[228%] rounded-2xl from-[20%] to-60% from-gray-200 to-gray-50 relative'>
+                    <div className='py-7 pl-10 bg-gradient-to-r mt-5 lg:w-[216%] xl:w-[228%] rounded-2xl from-[20%] to-60% from-gray-200 to-gray-50 relative'>
                         <div className='w-4/5'>
                             <p>Beyond writing code, I think like a product builder. I care deeply about user experience, performance, accessibility, and creating solutions that solve real business problems rather than simply delivering features.</p>
                             <Link

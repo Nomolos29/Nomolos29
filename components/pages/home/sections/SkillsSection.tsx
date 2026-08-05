@@ -40,7 +40,7 @@ const SkillsSection = () => {
   // ];
 
   return (
-    <section id='skills' className='w-full pb-20 px-4 bg-background'>
+    <section id='skills' className='w-full pb-20 px-4 lg:px-10 xl:px-14 bg-background'>
       <div className='max-w-6xl mx-auto'>
         <SectionHeading
           badge='Skills & Expertise'

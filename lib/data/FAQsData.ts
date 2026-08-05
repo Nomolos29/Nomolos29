@@ -1,4 +1,6 @@
-export const FAQs = [
+import { Question } from "../types/types";
+
+export const FAQs: Question[] = [
     {
         question: "Can you work remotely?",
         answer: "Absolutely. I'm comfortable collaborating asynchronously across different time zones using modern development workflows."

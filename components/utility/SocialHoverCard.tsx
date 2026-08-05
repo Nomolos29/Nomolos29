@@ -1,5 +1,5 @@
 import React from 'react';
-import { formatRelativeTime } from '@/lib/socialDataCache';
+import { formatRelativeTime } from '@/lib/data/socialDataCache';
 
 interface SocialHoverCardProps {
   platform: string;

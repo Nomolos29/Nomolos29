@@ -28,7 +28,7 @@ const PortfolioCard:React.FC<PortfolioCardProps> = ({preHeading, headingText, su
     <div className='py-10 w-fit'>
         {preHeading && <BubbleTag text={preHeading} theme='dark' direction='left' fontStyle='italic-normal' />}
         <div className='w-fit'>
-            <h1 className='text-9xl uppercase text-white font-[family-name:var(--font-rubikMaze)]'>{headingText}</h1>
+            <h1 className='lg:text-[7rem] leading-tight xl:text-9xl uppercase text-white font-[family-name:var(--font-rubikMaze)]'>{headingText}</h1>
         </div>
         {subheadingText && <BubbleTag text={subheadingText} theme={theme} direction='right' fontStyle='signature' />}
     </div>

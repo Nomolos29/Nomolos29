@@ -60,6 +60,8 @@ const Tools = () => {
           >
             {topImages.concat(topImages).map((image, index) => (
               <Image
+                width={200}
+                height={100}
                 key={index}
                 src={image.src}
                 alt={image.alt}
@@ -80,6 +82,8 @@ const Tools = () => {
               .reverse()
               .map((image, index) => (
                 <Image
+                  width={200}
+                  height={100}
                   key={index}
                   src={image.src}
                   alt={image.alt}

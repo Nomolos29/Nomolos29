@@ -1,4 +1,4 @@
-import { socialIcons } from '@/lib/links'
+import { socialIcons } from '@/lib/data/links'
 import NomolosPortrait from "@/public/Nomolos.png"
 import Image from 'next/image'
 import { FaArrowRight } from "react-icons/fa6"
@@ -20,19 +20,19 @@ const mobileFloatClasses = ['float-1', 'float-2', 'float-3', 'float-4', 'float-5
 const HeroSection = () => {
 
   return (
-    <section className='relative flex justify-center w-full h-full pt-32 pb-40 px-4 overflow-hidden bg-gradient-to-b from-[30%] from-gray-900 to-black'>
+    <section className='relative flex justify-center w-full h-full pt-32 lg:pb-32 xl:pb-40 px-4 overflow-hidden bg-gradient-to-b from-[30%] from-gray-900 to-black'>
 
       {/* ── Center content ── */}
       <div className='flex flex-col items-center w-full max-w-[1440px] text-center gap-y-5 z-[2]'>
 
         <PortfolioCard subheadingText='Sunday Solomon' headingText='Portfolio' preHeading='2026' />
 
-        <div className='w-full pt-20 h-[600px] flex flex-col items-center'>
+        <div className='w-full pt-20 xl:h-[600px] flex flex-col items-center'>
           <div className='flex flex-col items-center'>
-            <h1 className='uppercase text-white font-[family-name:var(--font-alfaSlabOne)] text-3xl sm:text-4xl md:text-5xl lg:text-9xl leading-tight z-[-2]'>
+            <h1 className='uppercase text-white font-[family-name:var(--font-alfaSlabOne)] text-3xl sm:text-4xl md:text-5xl lg:text-[9rem] xl:text-9xl leading-tight z-[-2]'>
               Web Developer
             </h1>
-            <div className='flex justify-between w-[1200px] font-semibold text-white'>
+            <div className='flex justify-between lg:w-[950px] xl:w-[1200px] font-semibold text-white'>
               <p className='text-sm sm:text-base md:text-lg text-muted-foreground max-w-[400px] text-left'>
                 From <span className='text-primary'>Frontend</span> development with JavaScript, TypeScript, React, Next.js and more...
               </p>
@@ -42,8 +42,8 @@ const HeroSection = () => {
             </div>
           </div>
 
-          <div className='flex justify-between w-[1200px] pt-20'>
-            <div className='max-w-[410px] text-left space-y-5 flex flex-col gap-y-14'>
+          <div className='flex justify-between lg:w-[950px] xl:w-[1200px] pt-20'>
+            <div className='lg:w-[330px] xl:w-[410px] text-left space-y-5 flex flex-col gap-y-14'>
               <div className='space-y-10 relative'>
                 <p className='text-sm sm:text-base text-muted-foreground'>
                   I build fast, scalable and accessible web applications with a strong focus on performance, maintainability and exceptional user experience.

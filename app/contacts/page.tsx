@@ -1,6 +1,6 @@
 // import ContactSection from "@/components/pages/home/sections/ContactSection"
 import { PortfolioCard } from "@/components/pages/home/utils"
-import { socialIcons } from "@/lib/links"
+import { socialIcons } from "@/lib/data/links"
 import NomolosPortrait from "@/public/Nomolos.png"
 import Image from 'next/image'
 import Link from 'next/link'

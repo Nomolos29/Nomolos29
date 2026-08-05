@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import Button from '../utility/Button'
 import Link from 'next/link'
-import { navMenu } from '@/lib/links'
+import { navMenu } from '@/lib/data/links'
 import ThemeToggle from '../utility/ThemeToggle'
 import { HiMenu, HiX } from 'react-icons/hi'
 
