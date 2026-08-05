@@ -43,11 +43,16 @@ const HeroSection = () => {
           </div>
 
           <div className='flex justify-between w-full lg:w-[950px] xl:w-[1200px] pt-20'>
-            <div className='md:w-[300px] lg:w-[330px] xl:w-[410px] text-left space-y-5 flex flex-col gap-y-14'>
-              <div className='space-y-10 relative'>
-                <p className='text-sm sm:text-base text-muted-foreground'>
+            <div className='md:w-[300px] lg:w-[330px] xl:w-[410px] text-left space-y-5 flex flex-col items-center md:items-start gap-y-6 md:gap-y-14'>
+              <div className='flex flex-col items-center md:items-start space-y-5 md:space-y-10 relative'>
+                <p className='w-[90%] md:w-full text-center md:text-left text-sm sm:text-base text-muted-foreground'>
                   I build fast, scalable and accessible web applications with a strong focus on performance, maintainability and exceptional user experience.
                 </p>
+
+                <div className='w-[190%] block md:hidden'>
+                  <Image src={NomolosPortrait} alt='hero mockup' width={1200} height={600} />
+                </div>
+
                 <Link
                   href={'https://wa.me/+2348101123098'}
                   target='_blank'
@@ -58,9 +63,9 @@ const HeroSection = () => {
               </div>
 
               <div>
-                <p className='uppercase text-white'>find me on:</p>
+                <p className='uppercase text-white text-center md:text-left'>find me on:</p>
                 {/* ── Mobile arc of social icons ── no SocialHoverCard inside so plain divs + onClick is fine ── */}
-                <div className='flex items-end gap-3 w-full mt-10'>
+                <div className='flex items-end gap-3 w-full mt-14 md:mt-10'>
                   {socialIcons.map((icon, index) => (
                     <Link key={index} href={icon.link}>
                       <div
@@ -79,7 +84,7 @@ const HeroSection = () => {
 
         </div>
 
-        <Image src={NomolosPortrait} alt='hero mockup' width={1200} height={600} className='absolute bottom-0 z-[-1]' />
+        <Image src={NomolosPortrait} alt='hero mockup' width={1200} height={600} className='hidden md:block absolute bottom-0 z-[-1]' />
 
         {/* <h1 className='absolute text-9xl font-[family-name:var(--font-rubikMaze)] text-gray-900 -bottom-12'>Sunday Solomon</h1> */}
       </div>
