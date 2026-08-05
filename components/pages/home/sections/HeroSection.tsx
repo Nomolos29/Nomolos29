@@ -29,21 +29,21 @@ const HeroSection = () => {
 
         <div className='w-full pt-20 xl:h-[600px] flex flex-col items-center'>
           <div className='flex flex-col items-center'>
-            <h1 className='uppercase text-white font-[family-name:var(--font-alfaSlabOne)] text-3xl sm:text-4xl md:text-5xl lg:text-[9rem] xl:text-9xl leading-tight z-[-2]'>
+            <h1 className='uppercase text-white font-[family-name:var(--font-alfaSlabOne)] text-3xl sm:text-4xl text-[56px] md:text-[110px] lg:text-[9rem] xl:text-9xl leading-tight z-[-2]'>
               Web Developer
             </h1>
-            <div className='flex justify-between lg:w-[950px] xl:w-[1200px] font-semibold text-white'>
-              <p className='text-sm sm:text-base md:text-lg text-muted-foreground max-w-[400px] text-left'>
+            <div className='flex justify-between w-full lg:w-[950px] xl:w-[1200px] font-semibold text-white'>
+              <p className='text-sm sm:text-base md:text-lg text-muted-foreground md:max-w-[320px] lg:max-w-[400px] text-left'>
                 From <span className='text-primary'>Frontend</span> development with JavaScript, TypeScript, React, Next.js and more...
               </p>
-              <p className='text-sm sm:text-base md:text-lg text-muted-foreground max-w-[400px] text-right'>
+              <p className='text-sm sm:text-base md:text-lg text-muted-foreground md:max-w-[320px] lg:max-w-[400px] text-right'>
                 Web design using <span className='text-primary'>Figma, WordPress, Divi</span> and modern no-code tools
               </p>
             </div>
           </div>
 
-          <div className='flex justify-between lg:w-[950px] xl:w-[1200px] pt-20'>
-            <div className='lg:w-[330px] xl:w-[410px] text-left space-y-5 flex flex-col gap-y-14'>
+          <div className='flex justify-between w-full lg:w-[950px] xl:w-[1200px] pt-20'>
+            <div className='md:w-[300px] lg:w-[330px] xl:w-[410px] text-left space-y-5 flex flex-col gap-y-14'>
               <div className='space-y-10 relative'>
                 <p className='text-sm sm:text-base text-muted-foreground'>
                   I build fast, scalable and accessible web applications with a strong focus on performance, maintainability and exceptional user experience.

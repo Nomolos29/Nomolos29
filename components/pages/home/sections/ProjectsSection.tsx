@@ -59,7 +59,7 @@ const Templates = () => {
   ).slice(0, 3);
 
   return (
-    <section className="py-12 md:py-20 px-4 lg:px-10 xl:px-14">
+    <section className="py-12 md:py-20 px-4 md:px-8 lg:px-10 xl:px-14">
       <div className="max-w-[1400px] bg-[#122B59] overflow-hidden relative rounded-[24px] md:rounded-[32px] py-12 md:py-20 mx-auto px-4 md:px-14 flex flex-col gap-y-8 md:gap-y-10 items-center">
         {/* Category Carousel */}
         <div className="flex items-center justify-center gap-4 mb-8 w-full">
