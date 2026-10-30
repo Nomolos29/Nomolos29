@@ -136,6 +136,7 @@ export const WEBPROJECTS: ProjectItem[] = [
     liveUrl: "https://www.schickcollections.com/",
     featured: true,
   },
+  
   {
     slug: "radiance-cookware",
     name: "Radiance Cookware Digital Store",
@@ -163,6 +164,7 @@ export const WEBPROJECTS: ProjectItem[] = [
     liveUrl: "https://radiancecookware.com/",
     featured: true,
   },
+
   {
     slug: "acedboard-enterprise-suite",
     name: "Acedboard Analytics & Reporting",
