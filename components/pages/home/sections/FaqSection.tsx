@@ -6,35 +6,53 @@ import { FAQs } from '@/lib/data/FAQsData'
 
 const FaqSection = () => {
   return (
-    <section className='w-full flex justify-center py-14 bg-gradient-to-b from-[30%] from-gray-900 to-black px-7  md:px-10 xl:px-14'>
-        <main className='max-w-[1440px] flex flex-col items-center justify-center overflow-hidden'>
-            <div className='flex flex-col gap-y-10 lg:flex-row justify-between items-start lg:items-center w-full h-[1000px] md:h-[1000px] lg:h-[550px]'>
-                <div className='w-full md:w-[80%] lg:w-[55%] xl:w-[45%] font-[family-name:var(--font-poppins)] space-y-5'>
-                    <h2 className='text-5xl md:text-7xl text-white lg:pr-5 xl:p-0'>Everything You Might Want to Know</h2>
-                    <p className='text-gray-300 text-xl w-[90%] md:w-[80%] lg:w-[80%] xl:w-[70%]'>Transparency matters. Here&apos;s a closer look at how I work, what I build, and what you can expect.</p>
-                    <div className='flex items-center gap-x-5'>
-                        <Link
-                            href={'https://wa.me/+2348101123098'}
-                            target='_blank'
-                            className='hidden md:inline-flex gap-x-4 items-center text-black text-lg py-3 px-6 rounded-full cursor-pointer mt-6 bg-white'
-                        >
-                            Let&apos;s Build Together <FaArrowRight />
-                        </Link>
+    <section
+      id='faq'
+      className='w-full flex justify-center py-20 bg-gradient-to-b from-[20%] from-gray-900 to-black px-5 md:px-10 xl:px-14'
+    >
+      <div className='max-w-[1440px] w-full flex flex-col items-center justify-center'>
+        <div className='flex flex-col gap-y-12 lg:flex-row justify-between items-start lg:items-center w-full'>
+          {/* Left Intro Column */}
+          <div className='w-full lg:w-[50%] xl:w-[46%] font-[family-name:var(--font-poppins)] space-y-6'>
+            <span className='inline-block text-xs font-semibold uppercase tracking-widest text-[#4da3ff] bg-[#4da3ff]/10 border border-[#4da3ff]/30 px-3.5 py-1.5 rounded-full'>
+              Frequently Asked Questions
+            </span>
+            <h2 className='text-4xl sm:text-5xl md:text-6xl font-bold text-white leading-tight'>
+              Everything You Might Want to Know
+            </h2>
+            <p className='text-gray-300 text-lg sm:text-xl max-w-xl leading-relaxed'>
+              Transparency matters. Here&apos;s a closer look at how I work, what I build, and what you can expect when we collaborate.
+            </p>
+            <div className='flex flex-wrap items-center gap-4 pt-2'>
+              <Link
+                href='https://wa.me/+2348101123098'
+                target='_blank'
+                className='group inline-flex gap-x-3 items-center text-black font-semibold text-base sm:text-lg py-3.5 px-6 rounded-full cursor-pointer bg-white hover:bg-gray-100 transition-all shadow-lg'
+              >
+                Let&apos;s Build Together
+                <FaArrowRight className='transition-transform duration-300 group-hover:translate-x-1.5' />
+              </Link>
 
-                        <Link
-                            href={'https://wa.me/+2348101123098'}
-                            target='_blank'
-                            className='inline-flex gap-x-4 items-center text-white text-lg py-3 px-6 border-[2px] rounded-full border-white cursor-pointer mt-4'
-                        >
-                            Let&apos;s Connect <FaArrowRight />
-                        </Link>
-                    </div>
-                </div>
-                <div className='md:w-[80%] lg:w-[35%] space-y-10 overflow-y-scroll h-full md:px-2 py-5 scrollbar-hide'>
-                    <Accordion questions={FAQs} />
-                </div>
+              <Link
+                href='/contacts'
+                className='group inline-flex gap-x-3 items-center text-white font-semibold text-base sm:text-lg py-3.5 px-6 border-2 rounded-full border-white/70 hover:bg-white/10 transition-all cursor-pointer'
+              >
+                Ask a Question
+                <FaArrowRight className='transition-transform duration-300 group-hover:translate-x-1.5' />
+              </Link>
             </div>
-        </main>
+          </div>
+
+          {/* Right Tilted FAQ Card Stack */}
+          <div className='w-full lg:w-[46%] relative'>
+            <div className='flex items-center justify-between text-xs text-gray-400 px-4 mb-2'>
+              <span>Click or hover any card to expand</span>
+              <span>{FAQs.length} Questions • Scroll for more ↓</span>
+            </div>
+            <Accordion questions={FAQs} />
+          </div>
+        </div>
+      </div>
     </section>
   )
 }

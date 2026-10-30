@@ -1,83 +1,125 @@
-import React from 'react';
-import SectionHeading from '../../../utility/SectionHeading';
+"use client"
+
+import React, { useEffect, useRef, useState } from 'react';
+import { PortfolioCard } from '../utils';
+import LogoSlideshow from '../../../utility/LogoSlideshow';
+import { companyShowcase } from '@/lib/data/links';
+import { FaBolt, FaMobileScreenButton, FaBullseye, FaCubes } from 'react-icons/fa6';
 
 const AboutSection = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.15 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   const stats = [
-    { number: '3+', label: 'Years Experience' },
+    { number: '5+', label: 'Years Experience' },
     { number: '15+', label: 'Projects Completed' },
-    { number: '4', label: 'Industry Partners' },
+    { number: '4+', label: 'Industry Partners' },
     { number: '100%', label: 'Client Satisfaction' },
   ];
 
   const values = [
     {
-      icon: '⚡',
+      icon: <FaBolt className='w-6 h-6 text-amber-500' />,
       title: 'Performance First',
-      description: 'Every line of code is optimized for speed, ensuring your users get the best experience possible.',
+      description: 'Every line of code is optimized for speed, Core Web Vitals, and instant interaction so users get the best experience possible.',
     },
     {
-      icon: '📱',
-      title: 'Mobile Responsive',
-      description: 'All designs are crafted to work flawlessly across every device and screen size.',
+      icon: <FaMobileScreenButton className='w-6 h-6 text-primary' />,
+      title: 'Mobile-First Responsive',
+      description: 'All interfaces are crafted to look and feel native across smartphones, tablets, laptops, and ultra-wide displays.',
     },
     {
-      icon: '🎯',
-      title: 'User-Centric Design',
-      description: 'I prioritize intuitive interfaces that convert visitors into customers.',
+      icon: <FaBullseye className='w-6 h-6 text-[#f835a7]' />,
+      title: 'Conversion & User-Centric',
+      description: 'I prioritize intuitive user journeys and visual hierarchy that turn visitors into loyal customers.',
     },
     {
-      icon: '🔧',
-      title: 'Clean Architecture',
-      description: 'Maintainable, scalable code that grows with your business needs.',
+      icon: <FaCubes className='w-6 h-6 text-emerald-500' />,
+      title: 'Clean, Scalable Architecture',
+      description: 'Maintainable, strongly-typed TypeScript & component-driven codebases that grow effortlessly with your business.',
     },
   ];
 
   return (
-    <section id='about' className='w-full py-20 px-4 bg-muted/30'>
+    <section
+      ref={sectionRef}
+      className='w-full py-16 md:py-24 px-4 md:px-8 lg:px-10 xl:px-14 bg-muted/30'
+    >
       <div className='max-w-6xl mx-auto'>
-        <SectionHeading
-          badge='About Me'
-          title='Building digital experiences that perform at scale'
-          subtitle="I'm Solomon, a passionate front-end developer with a focus on creating responsive, SEO-optimized web solutions. From concept to deployment, I ensure every project delivers exceptional user experience and business results."
-          size='md'
-          className='mb-16'
-        />
+        <div className='text-center mb-14'>
+          <PortfolioCard
+            preHeading='Proven Track Record'
+            headingText='Impact'
+            subheadingText='Values & Partners'
+            textColor='adaptive'
+          />
+          <p className='text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto'>
+            From concept to deployment, I partner with startups, agencies, and enterprises to deliver digital products that perform at scale.
+          </p>
+        </div>
 
         {/* Stats */}
-        <div className='grid grid-cols-2 md:grid-cols-4 gap-8 mb-20'>
+        <div className='grid grid-cols-2 md:grid-cols-4 gap-6 mb-16'>
           {stats.map((stat, index) => (
-            <div key={index} className='text-center'>
+            <div
+              key={index}
+              style={{ transitionDelay: `${index * 100}ms` }}
+              className={`bg-card border border-border rounded-3xl p-6 text-center shadow-md hover:border-primary/40 hover:-translate-y-1 transition-all duration-500 ${
+                inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+              }`}
+            >
               <div className='text-4xl md:text-5xl font-bold text-primary mb-2'>{stat.number}</div>
-              <div className='text-muted-foreground font-medium'>{stat.label}</div>
+              <div className='text-sm sm:text-base text-muted-foreground font-medium'>{stat.label}</div>
             </div>
           ))}
         </div>
 
-        {/* Values */}
-        <div className='grid grid-cols-1 md:grid-cols-2 gap-8 mb-16'>
+        {/* Core Values */}
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-7 mb-20'>
           {values.map((value, index) => (
-            <div key={index} className='bg-card border border-border rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow duration-300'>
-              <div className='text-4xl mb-4'>{value.icon}</div>
-              <h3 className='text-xl font-semibold text-foreground mb-3'>{value.title}</h3>
+            <div
+              key={index}
+              style={{ transitionDelay: `${200 + index * 100}ms` }}
+              className={`bg-card border border-border rounded-3xl p-8 shadow-md hover:shadow-xl hover:border-primary/40 hover:-translate-y-1 transition-all duration-500 ${
+                inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              }`}
+            >
+              <div className='w-12 h-12 rounded-2xl bg-muted flex items-center justify-center mb-5'>
+                {value.icon}
+              </div>
+              <h3 className='text-xl font-semibold text-foreground mb-2.5'>{value.title}</h3>
               <p className='text-muted-foreground leading-relaxed'>{value.description}</p>
             </div>
           ))}
         </div>
 
-        {/* Personal touch */}
-        <div className='bg-primary/5 border border-primary/20 rounded-2xl p-8 md:p-12'>
-          <div className='max-w-3xl mx-auto text-center'>
-            <h3 className='text-2xl font-semibold text-foreground mb-4'>Why Choose Me?</h3>
-            <p className='text-lg text-muted-foreground leading-relaxed mb-6'>
-              I don&apos;t just write code—I craft digital solutions. With experience across blockchain education,
-              project management platforms, and digital agencies, I understand what makes businesses succeed online.
-              Every project is an opportunity to create something exceptional.
-            </p>
-            <div className='inline-flex items-center gap-4 text-primary font-medium'>
-              <span>Let&apos;s build something amazing together</span>
-              <span className='text-2xl'>🚀</span>
-            </div>
+        {/* Companies & Partners Slideshow */}
+        <div className='space-y-6'>
+          <div className='text-center max-w-xl mx-auto'>
+            <span className='text-xs font-semibold uppercase tracking-widest text-primary bg-primary/10 px-3.5 py-1.5 rounded-full'>
+              Trusted By Teams
+            </span>
+            <h3 className='text-2xl sm:text-3xl font-bold text-foreground mt-3'>
+              Companies & Programs I&apos;ve Worked With
+            </h3>
           </div>
+          <LogoSlideshow companies={companyShowcase} />
         </div>
       </div>
     </section>

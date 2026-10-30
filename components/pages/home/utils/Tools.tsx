@@ -1,95 +1,92 @@
 "use client"
 
-
-import Image from "next/image";
 import React from "react";
-// import { gsap } from "gsap";
+import {
+  SiNextdotjs,
+  SiReact,
+  SiTypescript,
+  SiJavascript,
+  SiTailwindcss,
+  SiSolidity,
+  SiNodedotjs,
+  SiGit,
+  SiGithub,
+  SiFigma,
+  SiWordpress,
+  SiElementor,
+  SiHtml5,
+  SiCss3,
+  SiVercel,
+  SiMongodb,
+} from "react-icons/si";
 
-const topImages = [
-  { src: "/IntegrationsMarqueeIcons/marquee1.svg", alt: "Slack" },
-  { src: "/IntegrationsMarqueeIcons/marquee2.svg", alt: "Google Drive" },
-  { src: "/IntegrationsMarqueeIcons/marquee3.svg", alt: "Jira" },
-  { src: "/IntegrationsMarqueeIcons/marquee4.svg", alt: "Slack" },
-  { src: "/IntegrationsMarqueeIcons/marquee5.svg", alt: "Google Drive" },
-  { src: "/IntegrationsMarqueeIcons/marquee1.svg", alt: "Jira" },
-  { src: "/IntegrationsMarqueeIcons/marquee2.svg", alt: "Slack" },
-  { src: "/IntegrationsMarqueeIcons/marquee3.svg", alt: "Google Drive" },
-  { src: "/IntegrationsMarqueeIcons/marquee4.svg", alt: "Jira" },
-  { src: "/IntegrationsMarqueeIcons/marquee5.svg", alt: "Slack" },
-  { src: "/IntegrationsMarqueeIcons/marquee1.svg", alt: "Google Drive" },
-  { src: "/IntegrationsMarqueeIcons/marquee2.svg", alt: "Jira" }
+const topStack = [
+  { name: "Next.js 15", icon: SiNextdotjs, color: "group-hover:text-foreground" },
+  { name: "React 19", icon: SiReact, color: "group-hover:text-[#61DAFB]" },
+  { name: "TypeScript", icon: SiTypescript, color: "group-hover:text-[#3178C6]" },
+  { name: "JavaScript (ES6+)", icon: SiJavascript, color: "group-hover:text-[#F7DF1E]" },
+  { name: "Tailwind CSS", icon: SiTailwindcss, color: "group-hover:text-[#06B6D4]" },
+  { name: "Solidity / Web3", icon: SiSolidity, color: "group-hover:text-[#627EEA]" },
+  { name: "Node.js", icon: SiNodedotjs, color: "group-hover:text-[#339933]" },
+  { name: "HTML5", icon: SiHtml5, color: "group-hover:text-[#E34F26]" },
+];
+
+const bottomStack = [
+  { name: "Figma UI/UX", icon: SiFigma, color: "group-hover:text-[#F24E1E]" },
+  { name: "Git", icon: SiGit, color: "group-hover:text-[#F05032]" },
+  { name: "GitHub Actions", icon: SiGithub, color: "group-hover:text-foreground" },
+  { name: "WordPress", icon: SiWordpress, color: "group-hover:text-[#21759B]" },
+  { name: "Elementor", icon: SiElementor, color: "group-hover:text-[#92003B]" },
+  { name: "CSS3 & Animations", icon: SiCss3, color: "group-hover:text-[#1572B6]" },
+  { name: "Vercel Edge", icon: SiVercel, color: "group-hover:text-foreground" },
+  { name: "MongoDB", icon: SiMongodb, color: "group-hover:text-[#47A248]" },
 ];
 
 const Tools = () => {
-//   const marqueeLeftRef = useRef(null);
-//   const marqueeRightRef = useRef(null);
-
-//   useEffect(() => {
-//     const marqueeLeft = marqueeLeftRef.current;
-//     const marqueeRight = marqueeRightRef.current;
-
-//     gsap.to(marqueeLeft, {
-//       xPercent: -100,
-//       repeat: -1,
-//       duration: 20,
-//       ease: "linear",
-//       modifiers: {
-//         xPercent: gsap.utils.wrap(-100, 0),
-//       },
-//     });
-
-//     gsap.to(marqueeRight, {
-//       xPercent: 100,
-//       repeat: -1,
-//       duration: 20,
-//       ease: "linear",
-//       modifiers: {
-//         xPercent: gsap.utils.wrap(0, 100),
-//       },
-//     });
-//   }, []);
-
   return (
-    <div className="p-4 border border-[#D5D5D5] shadow-[2px_2px_32px_5px_#00000026] bg-[#FCFCFC] rounded-lg flex flex-col overflow-hidden w-full relative">
-      <div className="flex flex-col items-center space-y-6">
+    <div className="py-8 px-4 border border-border shadow-xl bg-card/80 backdrop-blur-md rounded-3xl flex flex-col overflow-hidden w-full relative marquee-mask">
+      <div className="flex flex-col items-center space-y-5">
         {/* Top Row - Marquee Left */}
         <div className="overflow-hidden whitespace-nowrap w-full">
-          <div
-            // ref={marqueeLeftRef}
-            className="flex justify-center items-center space-x-8 animate-marquee-left"
-          >
-            {topImages.concat(topImages).map((image, index) => (
-              <Image
-                width={200}
-                height={100}
-                key={index}
-                src={image.src}
-                alt={image.alt}
-                className="h-16"
-              />
-            ))}
+          <div className="flex items-center gap-5 w-max animate-marquee-left">
+            {[...topStack, ...topStack].map((tool, index) => {
+              const Icon = tool.icon;
+              return (
+                <div
+                  key={index}
+                  className="group flex items-center gap-3 px-5 py-3 rounded-2xl bg-muted/60 hover:bg-muted border border-border/70 hover:border-primary/40 transition-all duration-300 cursor-default hover:-translate-y-0.5 shadow-sm"
+                >
+                  <Icon
+                    className={`w-6 h-6 text-muted-foreground transition-colors duration-300 ${tool.color}`}
+                  />
+                  <span className="text-sm font-medium text-foreground">
+                    {tool.name}
+                  </span>
+                </div>
+              );
+            })}
           </div>
         </div>
 
         {/* Bottom Row - Marquee Right */}
         <div className="overflow-hidden whitespace-nowrap w-full">
-          <div
-            // ref={marqueeRightRef}
-            className="flex justify-center items-center space-x-8 animate-marquee-right"
-          >
-            {topImages
-              .concat(topImages)
-              .reverse()
-              .map((image, index) => (
-                <Image
-                  width={200}
-                  height={100}
+          <div className="flex items-center gap-5 w-max animate-marquee-right">
+            {[...bottomStack, ...bottomStack].map((tool, index) => {
+              const Icon = tool.icon;
+              return (
+                <div
                   key={index}
-                  src={image.src}
-                  alt={image.alt}
-                  className="h-16"
-                />
-              ))}
+                  className="group flex items-center gap-3 px-5 py-3 rounded-2xl bg-muted/60 hover:bg-muted border border-border/70 hover:border-primary/40 transition-all duration-300 cursor-default hover:-translate-y-0.5 shadow-sm"
+                >
+                  <Icon
+                    className={`w-6 h-6 text-muted-foreground transition-colors duration-300 ${tool.color}`}
+                  />
+                  <span className="text-sm font-medium text-foreground">
+                    {tool.name}
+                  </span>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

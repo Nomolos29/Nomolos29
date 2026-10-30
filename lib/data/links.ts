@@ -1,6 +1,6 @@
 import React from "react";
 import { navLinks, socialLinks } from "@/types/Links";
-import { FaLinkedinIn, FaXTwitter, FaGithub } from "react-icons/fa6";
+import { FaLinkedinIn, FaXTwitter, FaGithub, FaWhatsapp } from "react-icons/fa6";
 import { BiLogoGmail } from "react-icons/bi";
 
 
@@ -21,22 +21,31 @@ export const navMenu: navLinks[] = [
 
 export const socialIcons: socialLinks[] = [
     {
-        name: "LinkedIn",
-        link: "#",
-        icon: React.createElement(FaLinkedinIn),
-        color: "blue",
+        name: "GitHub",
+        link: "https://github.com/Nomolos29/",
+        icon: React.createElement(FaGithub),
+        color: "black",
         labelDirection: "left",
-        position: "top-right",
-        platform: "linkedin"
+        position: "bottom-left",
+        platform: "github"
     },
     {
-        name: "Twitter",
+        name: "Twitter / X",
         link: "https://x.com/Nomoreloss29",
         icon: React.createElement(FaXTwitter),
         color: "black",
         labelDirection: "left",
         position: "top-left",
         platform: "twitter"
+    },
+    {
+        name: "WhatsApp",
+        link: "https://wa.me/+2348101123098",
+        icon: React.createElement(FaWhatsapp),
+        color: "green",
+        labelDirection: "left",
+        position: "right-center",
+        platform: "whatsapp"
     },
     {
         name: "Gmail",
@@ -48,32 +57,14 @@ export const socialIcons: socialLinks[] = [
         platform: "gmail"
     },
     {
-        name: "GitHub",
-        link: "https://github.com/Nomolos29/",
-        icon: React.createElement(FaGithub),
-        color: "black",
+        name: "LinkedIn",
+        link: "https://www.linkedin.com/in/nomolos29",
+        icon: React.createElement(FaLinkedinIn),
+        color: "blue",
         labelDirection: "left",
-        position: "bottom-left",
-        platform: "github"
+        position: "top-right",
+        platform: "linkedin"
     },
-    // {
-    //     name: "WhatsApp",
-    //     link: "https://wa.me/+2348101123098",
-    //     icon: React.createElement(FaWhatsapp),
-    //     color: "green",
-    //     labelDirection: "left",
-    //     position: "right-center",
-    //     platform: "whatsapp"
-    // },
-    // {
-    //     name: "Youtube",
-    //     link: "#",
-    //     icon: React.createElement(FaYoutube),
-    //     color: "red",
-    //     labelDirection: "right",
-    //     position: "left-center",
-    //     platform: "youtube"
-    // }
 ]
 
 export const companyShowcase = [
@@ -97,8 +88,8 @@ export const companyShowcase = [
     },
     {
         name: "KBM Group",
-        description: "Real estate and investment firm providing comprehensive property solutions and strategic investment opportunities.",
-        industry: "Real Estate & Investment",
+        description: "Real estate, education, and investment firm providing comprehensive digital platforms and strategic growth solutions.",
+        industry: "EdTech & Investment",
         website: "#",
         logoText: "KBM"
     },
