@@ -6,7 +6,7 @@ import { FaArrowRight } from 'react-icons/fa6'
 const QuestioniareSection = () => {
   return (
     <section className='w-full flex justify-center px-5 md:px-8 lg:px-10 xl:px-14 pb-20'>
-        <div className='flex flex-col md:flex-row justify-between w-full pt-10 md:py-7 pl-7 md:pl-10 bg-gradient-to-r mt-5 max-w-[1440px] rounded-2xl from-[20%] to-60% from-gray-200 to-gray-50 relative md:pb-10'>
+        <div className='flex flex-col md:flex-row justify-between w-full py-10 md:pt-10 pl-7 md:pl-10 max-w-[1400px] relative md:my-28'>
             <div className='w-[90%] lg:w-[60%] xl:w-[50%] flex flex-col gap-y-5'>
                 <h2 className='text-5xl md:text-7xl text-black font-[family-name:var(--font-poppins)]'>Tell Me About Your Project.</h2>
                 <p className='font-[family-name:var(--font-poppins)] text-lg w-[95%] lg:w-[80%] xl:w-full'>Every successful website begins with understanding your business. This short questionnaire helps me learn about your goals, audience, and project requirements so I can build a solution that&apos;s tailored to your needs.</p>

@@ -72,7 +72,7 @@ const SkillsSection = () => {
     <section
       id='skills'
       ref={sectionRef}
-      className='w-full py-16 md:py-24 px-4 md:px-8 lg:px-10 xl:px-14 bg-background'
+      className='w-full py-16 md:pt-24 px-4 md:px-8 lg:px-10 xl:px-14 bg-background'
     >
       <div className='max-w-6xl mx-auto'>
         <div className='flex flex-col items-center text-center mb-12'>
@@ -88,7 +88,7 @@ const SkillsSection = () => {
         </div>
 
         {/* Skills Grid */}
-        <div className='grid grid-cols-1 lg:grid-cols-3 gap-8 mb-14'>
+        <div className='grid grid-cols-1 lg:grid-cols-3 gap-8 mb-40'>
           {skillCategories.map((category, categoryIndex) => (
             <div
               key={categoryIndex}

@@ -8,25 +8,46 @@ interface BubbleTagProps {
     direction: 'right' | 'left';
     fontStyle?: 'signature' | 'italic-normal';
     isVisible?: boolean;
+    surface?: 'white' | 'adaptive';
 }
 
-const BubbleTag: React.FC<BubbleTagProps> = ({ text, theme, direction, fontStyle, isVisible = true }) => (
-    <div
-        className={`flex ${direction === 'right' ? 'justify-end' : 'justify-start'} transition-all duration-700 ease-out ${
-            isVisible
-                ? 'opacity-100 translate-x-0'
-                : direction === 'left'
-                ? 'opacity-0 -translate-x-8'
-                : 'opacity-0 translate-x-8'
-        }`}
-        style={{ transitionDelay: direction === 'left' ? '100ms' : '300ms' }}
-    >
-        <div className={`flex items-center gap-x-1.5 ${fontStyle === 'signature' ? 'font-[family-name:var(--font-italianno)]' : fontStyle === 'italic-normal' ? 'italic' : ''}`}>
-            <div className={`h-8 w-8 rounded-full border border-white/80 transition-transform duration-500 hover:scale-110 ${theme === 'light' ? 'text-black bg-white shadow-sm' : 'text-white bg-white/10 backdrop-blur-sm'}`} />
-            <p className={`border px-5 md:px-8 h-8 flex items-center justify-center text-lg md:text-[22px] rounded-full max-w-fit border-white/80 ${theme === 'light' ? 'text-black bg-white shadow-sm' : 'text-white bg-white/10 backdrop-blur-sm'}`}>{text}</p>
+const BubbleTag: React.FC<BubbleTagProps> = ({
+    text,
+    theme,
+    direction,
+    fontStyle,
+    isVisible = true,
+    surface = 'white',
+}) => {
+    const pillStyle =
+        surface === 'adaptive'
+            ? theme === 'light'
+                ? 'text-background bg-foreground border-foreground shadow-sm'
+                : 'text-foreground bg-transparent border-foreground/80'
+            : theme === 'light'
+            ? 'text-black bg-white border-white/80 shadow-sm'
+            : 'text-white bg-white/10 border-white/80 backdrop-blur-sm';
+
+    return (
+        <div
+            className={`flex ${direction === 'right' ? 'justify-end' : 'justify-start'} transition-all duration-700 ease-out ${
+                isVisible
+                    ? 'opacity-100 translate-x-0'
+                    : direction === 'left'
+                    ? 'opacity-0 -translate-x-8'
+                    : 'opacity-0 translate-x-8'
+            }`}
+            style={{ transitionDelay: direction === 'left' ? '100ms' : '300ms' }}
+        >
+            <div className={`flex items-center gap-x-1.5 ${fontStyle === 'signature' ? 'font-[family-name:var(--font-italianno)]' : fontStyle === 'italic-normal' ? 'italic' : ''}`}>
+                <div className={`h-8 w-8 rounded-full border transition-transform duration-500 hover:scale-110 ${pillStyle}`} />
+                <p className={`border px-5 md:px-8 h-8 flex items-center justify-center text-lg md:text-[22px] rounded-full max-w-fit ${pillStyle}`}>
+                    {text}
+                </p>
+            </div>
         </div>
-    </div>
-)
+    );
+}
 
 interface PortfolioCardProps {
     preHeading?: string;
@@ -71,6 +92,7 @@ const PortfolioCard: React.FC<PortfolioCardProps> = ({
                     direction='left'
                     fontStyle='italic-normal'
                     isVisible={isVisible}
+                    surface={textColor}
                 />
             )}
             <div
@@ -94,6 +116,7 @@ const PortfolioCard: React.FC<PortfolioCardProps> = ({
                     direction='right'
                     fontStyle='signature'
                     isVisible={isVisible}
+                    surface={textColor}
                 />
             )}
         </div>
