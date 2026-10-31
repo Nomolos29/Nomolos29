@@ -17,6 +17,15 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
   const [email, setEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
+  const [spotPos, setSpotPos] = useState({ x: 50, y: 50 });
+  const [isHoveringWordmark, setIsHoveringWordmark] = useState(false);
+
+  const handleWordmarkMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    setSpotPos({ x, y });
+  };
 
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
@@ -247,14 +256,45 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* ── PART 3: Giant Faint Monumental "NOMOLOS" Wordmark Across the Bottom ── */}
-      <div className='w-full overflow-hidden select-none pointer-events-none flex justify-center items-end pt-2'>
-        <p
-          aria-hidden='true'
-          className='text-[19vw] leading-[0.78] tracking-tight uppercase font-[family-name:var(--font-rubikMaze)] bg-gradient-to-b from-white/[0.14] via-white/[0.05] to-transparent bg-clip-text text-transparent whitespace-nowrap -mb-[2.2vw]'
-        >
-          NOMOLOS
-        </p>
+      {/* ── PART 3: Monumental Etched "NOMOLOS" Wordmark with Monochrome Torch Reveal ── */}
+      <div
+        onMouseMove={handleWordmarkMouseMove}
+        onMouseEnter={() => setIsHoveringWordmark(true)}
+        onMouseLeave={() => setIsHoveringWordmark(false)}
+        className='relative z-10 w-full overflow-hidden select-none pt-2 flex justify-center items-end'
+      >
+        <div className='relative flex justify-center items-end w-full'>
+          {/* Base Layer: Matte Brushed-Metal Monumental Wordmark */}
+          <p
+            aria-hidden='true'
+            className='text-[19vw] leading-[0.78] tracking-tight uppercase font-[family-name:var(--font-rubikMaze)] bg-gradient-to-b from-white/[0.14] via-white/[0.05] to-transparent bg-clip-text text-transparent whitespace-nowrap -mb-[2.2vw]'
+            style={{
+              WebkitTextStroke: '1px rgba(255, 255, 255, 0.06)',
+            }}
+          >
+            NOMOLOS
+          </p>
+
+          {/* Interactive Torch Layer: Crisp Platinum Specular Reveal Masked to Cursor Position */}
+          <p
+            aria-hidden='true'
+            className='pointer-events-none absolute inset-0 flex justify-center items-end text-[19vw] leading-[0.78] tracking-tight uppercase font-[family-name:var(--font-rubikMaze)] bg-gradient-to-b from-white/75 via-white/35 to-transparent bg-clip-text text-transparent whitespace-nowrap -mb-[2.2vw] transition-opacity duration-500'
+            style={{
+              opacity: isHoveringWordmark ? 1 : 0,
+              WebkitTextStroke: '1px rgba(255, 255, 255, 0.38)',
+              maskImage: `radial-gradient(340px circle at ${spotPos.x}% ${spotPos.y}%, black 0%, rgba(0,0,0,0.4) 45%, transparent 100%)`,
+              WebkitMaskImage: `radial-gradient(340px circle at ${spotPos.x}% ${spotPos.y}%, black 0%, rgba(0,0,0,0.4) 45%, transparent 100%)`,
+            }}
+          >
+            NOMOLOS
+          </p>
+
+          {/* Bottom Vignette Fade into #050507 so the base dissolves cleanly */}
+          <div
+            aria-hidden='true'
+            className='pointer-events-none absolute inset-x-0 bottom-0 h-10 sm:h-16 bg-gradient-to-t from-[#050507] via-[#050507]/70 to-transparent'
+          />
+        </div>
       </div>
     </footer>
   );
