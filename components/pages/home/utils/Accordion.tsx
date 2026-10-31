@@ -41,9 +41,9 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
       </div>
       <div className='p-3'>
         <div className='bg-gray-900 text-white p-4 overflow-hidden rounded-xl flex flex-col gap-y-2.5 font-[family-name:var(--font-poppins)]'>
-          <h3 className='text-base sm:text-lg font-medium leading-snug'>{question}</h3>
+          <h3 className='text-base sm:text-lg md:text-2xl font-medium leading-snug'>{question}</h3>
           <p
-            className={`text-sm text-gray-300 leading-relaxed transition-all duration-500 overflow-hidden ${
+            className={`text-sm md:text-lg text-gray-300 leading-relaxed transition-all duration-500 overflow-hidden ${
               isActive
                 ? 'max-h-96 opacity-100 pt-1'
                 : 'max-h-0 opacity-0 xl:group-hover:max-h-96 xl:group-hover:opacity-100 xl:group-hover:pt-1'
@@ -65,7 +65,7 @@ const Accordion: React.FC<AccordionProps> = ({ questions }) => {
   }
 
   return (
-    <div className='w-full space-y-7 overflow-y-auto max-h-[520px] px-4 py-6 scrollbar-hide'>
+    <div className='w-full space-y-10 overflow-y-auto max-h-[520px] px-4 py-6 scrollbar-hide'>
       {questions.map((faq, index) => (
         <QuestionCard
           key={index}
