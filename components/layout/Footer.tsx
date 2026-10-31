@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import ArchitecturalBackdrop from '@/components/utility/ArchitecturalBackdrop';
 import {
   FaGithub,
   FaLinkedinIn,
@@ -51,8 +52,9 @@ const Footer = () => {
 
   return (
     <footer className='relative w-full bg-[#050507] text-gray-400 overflow-hidden font-[family-name:var(--font-poppins)]'>
+      <ArchitecturalBackdrop variant='subtle' />
       {/* ── PART 1: Distinct High-Contrast Light Newsletter Banner ── */}
-      <div className='w-full bg-gradient-to-b from-black to-[#050507] pt-10 pb-16 px-5 md:px-8 lg:px-10 xl:px-14'>
+      <div className='relative z-10 w-full bg-gradient-to-b from-black/80 to-transparent pt-10 pb-16 px-5 md:px-8 lg:px-10 xl:px-14'>
         <div className='max-w-[1440px] mx-auto bg-gradient-to-r from-[20%] to-80% from-gray-200 via-gray-100 to-white text-black rounded-[28px] md:rounded-[36px] p-8 sm:p-10 md:p-14 shadow-[0_20px_60px_rgba(0,0,0,0.45)] relative overflow-hidden'>
           {/* Decorative faint circle */}
           <div className='pointer-events-none absolute -right-16 -bottom-24 w-80 h-80 rounded-full border-[24px] border-black/[0.04]' />

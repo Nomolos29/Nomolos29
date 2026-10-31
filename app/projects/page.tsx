@@ -6,6 +6,7 @@ import Link from 'next/link'
 import { PortfolioCard } from '@/components/pages/home/utils'
 import { WEBPROJECTS } from '@/lib/data/projectData'
 import QuestioniareSection from '@/components/pages/home/sections/QuestioniareSection'
+import ArchitecturalBackdrop from '@/components/utility/ArchitecturalBackdrop'
 import { FaArrowRight, FaArrowUpRightFromSquare, FaMagnifyingGlass } from 'react-icons/fa6'
 
 const categories = [
@@ -37,7 +38,7 @@ const ProjectsPage = () => {
     <div className='min-h-screen bg-background overflow-hidden'>
       {/* Hero Banner */}
       <section className='relative flex justify-center w-full pt-32 pb-20 px-4 md:px-8 lg:px-10 xl:px-14 bg-gradient-to-b from-[25%] from-gray-900 via-[#081022] to-black overflow-hidden'>
-        <div className='pointer-events-none absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-primary/20 blur-[130px]' />
+        <ArchitecturalBackdrop variant='hero' />
 
         <div className='max-w-[1280px] w-full flex flex-col items-center text-center z-10'>
           <PortfolioCard

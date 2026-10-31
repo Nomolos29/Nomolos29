@@ -5,6 +5,7 @@ import { PortfolioCard } from '@/components/pages/home/utils'
 import AboutSection from '@/components/pages/home/sections/AboutSection'
 import SkillsSection from '@/components/pages/home/sections/SkillsSection'
 import FaqSection from '@/components/pages/home/sections/FaqSection'
+import ArchitecturalBackdrop from '@/components/utility/ArchitecturalBackdrop'
 import NomolosPortrait from '@/public/Nomolos.png'
 import { FaArrowRight, FaBriefcase, FaGraduationCap, FaCode } from 'react-icons/fa6'
 
@@ -52,7 +53,7 @@ const AboutMePage = () => {
     <div className='min-h-screen bg-background overflow-hidden'>
       {/* Hero Banner */}
       <section className='relative flex justify-center w-full pt-32 pb-20 px-4 md:px-8 lg:px-10 xl:px-14 overflow-hidden bg-gradient-to-b from-[25%] from-gray-900 via-[#080d1a] to-black'>
-        <div className='pointer-events-none absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[480px] h-[480px] rounded-full bg-primary/20 blur-[130px]' />
+        <ArchitecturalBackdrop variant='hero' />
 
         <div className='max-w-[1280px] w-full flex flex-col items-center z-10'>
           <PortfolioCard

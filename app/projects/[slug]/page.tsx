@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { WEBPROJECTS } from '@/lib/data/projectData'
+import ArchitecturalBackdrop from '@/components/utility/ArchitecturalBackdrop'
 import { FaArrowLeft, FaArrowRight, FaArrowUpRightFromSquare, FaCircleCheck } from 'react-icons/fa6'
 
 export function generateStaticParams() {
@@ -32,7 +33,8 @@ export default async function ProjectDetailPage({
   return (
     <div className='min-h-screen bg-background overflow-hidden'>
       {/* Case Study Hero */}
-      <section className='relative w-full pt-32 pb-16 px-4 md:px-8 lg:px-10 xl:px-14 bg-gradient-to-b from-gray-900 via-[#081022] to-black'>
+      <section className='relative w-full pt-32 pb-16 px-4 md:px-8 lg:px-10 xl:px-14 bg-gradient-to-b from-gray-900 via-[#081022] to-black overflow-hidden'>
+        <ArchitecturalBackdrop variant='hero' />
         <div className='max-w-5xl mx-auto z-10 relative space-y-6'>
           <Link
             href='/projects'

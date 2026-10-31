@@ -1,5 +1,6 @@
 import React from 'react'
 import { Accordion } from '../utils'
+import ArchitecturalBackdrop from '@/components/utility/ArchitecturalBackdrop'
 import Link from 'next/link'
 import { FaArrowRight } from 'react-icons/fa6'
 import { FAQs } from '@/lib/data/FAQsData'
@@ -8,9 +9,10 @@ const FaqSection = () => {
   return (
     <section
       id='faq'
-      className='w-full flex justify-center py-20 bg-gradient-to-b from-[20%] from-gray-900 to-black px-5 md:px-10 xl:px-14'
+      className='relative overflow-hidden w-full flex justify-center py-20 bg-gradient-to-b from-[20%] from-gray-900 to-black px-5 md:px-10 xl:px-14'
     >
-      <div className='max-w-[1440px] w-full flex flex-col items-center justify-center'>
+      <ArchitecturalBackdrop variant='subtle' />
+      <div className='relative z-10 max-w-[1440px] w-full flex flex-col items-center justify-center'>
         <div className='flex flex-col gap-y-12 lg:flex-row justify-between items-start lg:items-center w-full'>
           {/* Left Intro Column */}
           <div className='w-full lg:w-[50%] xl:w-[46%] font-[family-name:var(--font-poppins)] space-y-6'>

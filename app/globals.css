@@ -123,6 +123,103 @@ body {
   animation: pulse-glow 6s ease-in-out infinite;
 }
 
+@keyframes orbit-slow {
+  0% {
+    transform: rotate(0deg) translateX(18px) rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg) translateX(28px) rotate(-180deg);
+  }
+  100% {
+    transform: rotate(360deg) translateX(18px) rotate(-360deg);
+  }
+}
+
+@keyframes beam-flow {
+  0% {
+    stroke-dashoffset: 600;
+    opacity: 0.15;
+  }
+  50% {
+    opacity: 0.75;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0.15;
+  }
+}
+
+.animate-orbit-slow {
+  animation: orbit-slow 22s ease-in-out infinite;
+}
+
+@keyframes orbit-reverse {
+  0% {
+    transform: rotate(360deg) translateX(22px) rotate(-360deg);
+  }
+  50% {
+    transform: rotate(180deg) translateX(32px) rotate(-180deg);
+  }
+  100% {
+    transform: rotate(0deg) translateX(22px) rotate(0deg);
+  }
+}
+
+@keyframes grid-pan {
+  0% {
+    background-position: 0px 0px, 0px 0px;
+  }
+  100% {
+    background-position: 56px 56px, 56px 56px;
+  }
+}
+
+@keyframes sonar-ping {
+  0% {
+    transform: scale(1);
+    opacity: 0.85;
+  }
+  100% {
+    transform: scale(3.2);
+    opacity: 0;
+  }
+}
+
+.animate-orbit-reverse {
+  animation: orbit-reverse 19s ease-in-out infinite;
+}
+
+.animate-grid-pan {
+  animation: grid-pan 18s linear infinite;
+}
+
+.animate-sonar-ping {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: sonar-ping 3.2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.animate-sonar-ping-delayed {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: sonar-ping 3.2s cubic-bezier(0, 0, 0.2, 1) infinite 1.6s;
+}
+
+.animate-beam-flow {
+  stroke-dasharray: 110 490;
+  animation: beam-flow 7s linear infinite;
+}
+
+.animate-beam-flow-delayed {
+  stroke-dasharray: 90 510;
+  animation: beam-flow 9s linear infinite 2.5s;
+}
+
+.animate-beam-flow-fast {
+  stroke-dasharray: 70 530;
+  animation: beam-flow 5.5s linear infinite 1.2s;
+}
+
 .animate-fade-up {
   animation: fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }

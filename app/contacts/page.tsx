@@ -1,5 +1,6 @@
 import ContactSection from "@/components/pages/home/sections/ContactSection"
 import { PortfolioCard } from "@/components/pages/home/utils"
+import ArchitecturalBackdrop from "@/components/utility/ArchitecturalBackdrop"
 import { socialIcons } from "@/lib/data/links"
 import NomolosPortrait from "@/public/Nomolos.png"
 import Image from 'next/image'
@@ -11,8 +12,7 @@ const ContactsPage = () => {
   return (
     <div className='min-h-screen bg-background overflow-hidden'>
       <section className='relative flex justify-center w-full pt-28 pb-24 lg:pb-36 px-4 md:px-8 lg:px-10 overflow-hidden bg-gradient-to-b from-[30%] from-gray-900 via-[#080d1a] to-black'>
-        {/* Ambient Glow */}
-        <div className='pointer-events-none absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-primary/20 blur-[130px]' />
+        <ArchitecturalBackdrop variant='hero' />
 
         {/* ── Center content ── */}
         <div className='flex flex-col items-center w-full max-w-[1360px] text-center gap-y-6 z-[2]'>
