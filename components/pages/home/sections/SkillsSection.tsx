@@ -88,26 +88,26 @@ const SkillsSection = () => {
         </div>
 
         {/* Skills Grid */}
-        <div className='grid grid-cols-1 lg:grid-cols-3 gap-8 mb-40'>
+        <div className='grid grid-cols-1 lg:grid-cols-3 gap-8 mb-40 h-fit'>
           {skillCategories.map((category, categoryIndex) => (
             <div
               key={categoryIndex}
               style={{ transitionDelay: `${categoryIndex * 120}ms` }}
-              className={`bg-card border border-border rounded-3xl p-7 shadow-lg hover:shadow-xl hover:border-primary/40 transition-all duration-700 ${
+              className={`bg-card border border-border rounded-3xl h-[500px] p-7 shadow-lg hover:shadow-xl hover:border-primary/40 transition-all duration-700 ${
                 inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
             >
-              <div className='flex items-center justify-between mb-6 pb-4 border-b border-border'>
+              <div className='flex justify-between mb-6 pb-4 border-b border-border gap-5'>
                 <h3 className='text-xl font-semibold text-foreground'>{category.category}</h3>
-                <span className='text-xs font-semibold px-3 py-1 rounded-full bg-primary/10 text-primary'>
+                <span className='text-xs font-semibold px-3 py-1 h-fit w-fit text-nowrap rounded-full bg-primary/10 text-primary'>
                   {category.badge}
                 </span>
               </div>
 
-              <div className='space-y-5'>
+              <div className='flex flex-col justify-between h-[70%] gap-5'>
                 {category.skills.map((skill, skillIndex) => (
                   <div key={skillIndex} className='space-y-2'>
-                    <div className='flex items-center justify-between'>
+                    <div className='flex items-center justify-between h-full'>
                       <div className='flex items-center gap-2.5'>
                         <span className='p-2 rounded-xl bg-muted flex items-center justify-center'>
                           {skill.icon}
